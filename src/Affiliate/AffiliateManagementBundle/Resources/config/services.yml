@@ -1,0 +1,7 @@
+parameters:
+#    affiliate_affiliate_management.example.class: Affiliate\AffiliateManagementBundle\Example
+
+services:
+#    affiliate_affiliate_management.example:
+#        class: %affiliate_affiliate_management.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,34 @@
+Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal:
+    type: entity
+    table: affiliate_deal_t
+    repositoryClass: Affiliate\AffiliateManagementBundle\Entity\AffiliateDealRepository
+    id:
+        id:
+            type: bigint
+            aff_deal_id: true
+            column: aff_deal_id
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+            length: 255
+            column: description
+            nullable: true
+        createdat:
+            type: datetime
+            column: createdat
+        updatedat:
+            type: datetime
+            column: updatedat
+    manyToOne:
+     Affiliateinfo:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo
+      inversedBy: AffiliateDeal
+      joinColumn:
+        onDelete: "CASCADE"
+        name: aff_id
+        referencedColumnName: aff_id
+    lifecycleCallbacks: 
+      prePersist: [ setCreatedOnValue ]
+      preUpdate: [ setUpdatedOnValue ]

@@ -1,0 +1,86 @@
+Affiliate\AffiliateManagementBundle\Entity\Userinfo:
+    type: entity
+    table: userinfo_t
+    repositoryClass: Affiliate\AffiliateManagementBundle\Entity\UserinfoRepository
+    id:
+        id:
+            type: bigint
+            user_id: true
+            column: user_id
+            generator:
+                strategy: AUTO
+    fields:
+        fname:
+            type: string
+            length: '30'
+            column: fname
+            nullable: true
+        lname:
+            type: string
+            length: '30'
+            column: lname
+            nullable: true
+        username:
+            type: string
+            length: '30'
+            column: username
+            nullable: false
+            unique: true
+        password:
+            type: string
+            length: '100'
+            column: password
+            nullable: true
+        email:
+            type: string
+            length: '30'
+            column: email
+            nullable: false
+            unique: true
+        state:
+            type: string
+            length: '20'
+            column: state
+            nullable: true
+        country:
+            type: string
+            length: '20'
+            column: country
+            nullable: true
+        zipcode:
+            type: string
+            length: '20'
+            column: zipcode
+            nullable: true
+        mobile:
+            type: string
+            length: '20'
+            column: mobile
+            nullable: true
+        usertype:
+            type: string
+            length: '20'
+            column: usertype
+            nullable: true
+        createdat:
+            type: datetime
+            column: createdat
+        updatedat:
+            type: datetime
+            column: updatedat
+    oneToMany:
+     AffiliatePayReq:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq
+      mappedBy: Userinfo
+     AffiliatePayRel:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel
+      mappedBy: Userinfo
+     AdminPayReq:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AdminPayReq
+      mappedBy: Userinfo
+     AdminPayRel:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AdminPayRel
+      mappedBy: Userinfo
+    lifecycleCallbacks: 
+      prePersist: [ setCreatedOnValue ]
+      preUpdate: [ setUpdatedOnValue ]

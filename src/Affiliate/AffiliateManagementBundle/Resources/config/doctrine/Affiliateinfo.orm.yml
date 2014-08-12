@@ -1,0 +1,83 @@
+Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo:
+    type: entity
+    table: affiliate_info_t
+    repositoryClass: Affiliate\AffiliateManagementBundle\Entity\AffiliateinfoRepository
+    id:
+        id:
+            type: bigint
+            aff_id: true
+            column: aff_id
+            generator:
+                strategy: AUTO
+    fields:
+        fname:
+            type: string
+            length: '30'
+            column: fname
+            nullable: true
+        lname:
+            type: string
+            length: '30'
+            column: lname
+            nullable: true
+        username:
+            type: string
+            length: '30'
+            column: username
+            nullable: false
+            unique: true
+        password:
+            type: string
+            length: '100'
+            column: password
+            nullable: true
+        email:
+            type: string
+            length: '30'
+            column: email
+            nullable: false
+            unique: true
+        state:
+            type: string
+            length: '20'
+            column: state
+            nullable: true
+        country:
+            type: string
+            length: '20'
+            column: country
+            nullable: true
+        zipcode:
+            type: string
+            length: '20'
+            column: zipcode
+            nullable: true
+        mobile:
+            type: string
+            length: '100'
+            column: mobile
+            nullable: true
+        addedBy:
+            type: string
+            length: 255
+            column: added_by
+            nullable: true
+        createdat:
+            type: datetime
+            column: createdat
+        updatedat:
+            type: datetime
+            column: updatedat
+    oneToMany:
+     AffiliateDeal:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal
+      mappedBy: Affiliateinfo
+     AffiliatePayReq:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq
+      mappedBy: Affiliateinfo
+     AffiliatePayRel:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel
+      mappedBy: Affiliateinfo
+    lifecycleCallbacks: 
+      prePersist: [ setCreatedOnValue ]
+      preUpdate: [ setUpdatedOnValue ]

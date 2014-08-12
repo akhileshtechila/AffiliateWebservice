@@ -1,0 +1,66 @@
+{% extends '::baseadmindemo.html.twig' %}
+{% block title %}Deal Information{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+
+{% endblock %}
+{% block javascripts %}
+   {{ parent() }}
+{% endblock %}
+
+{% block body -%}
+
+    <!-- Main content -->
+
+                        <div class="col-md-6">
+                            <!-- general form elements disabled -->
+                            <div class="box box-warning">
+                                <div class="box-header">
+                                    <h3 class="box-title">Deal Information</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    {{form_start(form, {'enctype': 'multipart/form-data' ,'attr':{'class':'' ,'role':'form'}}) }}
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Deal Name</label>
+                                             {{ form_widget(form.dname,{'attr':{'class':"form-control"}}) }} 
+                                        </div>
+                                        
+                                         <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Deal Duration</label>
+                                           {{ form_widget(form.dealDuration,{'attr':{'class':"form-control"}}) }}
+                                            
+                                        </div>
+                                         
+                                          <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                        
+                                           {{ form_widget(form.description,{'attr':{'class':"form-control"}}) }} 
+                                            
+                                        </div>
+                                          
+                                           <!-- text input -->                                        
+                                          {{ form_widget(form._token) }}
+                                           <div class="form-group">
+                                             <button type="submit"  class="btn btn-success"><i class="icon-ok icon-green"></i> Create</button>
+                                        </div>
+                                          
+                                    {{form_end(form, {'render_rest': false}) }} 
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                            
+                            <ul class="record_actions">
+                                <li>
+                                    <a href="{{ path('deal') }}">
+                                        Back to the list
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                        </div><!--/.col (right) -->
+
+          
+
+{% endblock %}

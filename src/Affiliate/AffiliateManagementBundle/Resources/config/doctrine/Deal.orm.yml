@@ -1,0 +1,36 @@
+Affiliate\AffiliateManagementBundle\Entity\Deal:
+    type: entity
+    table: DEAL_T
+    repositoryClass: Affiliate\AffiliateManagementBundle\Entity\DealRepository
+    id:
+        id:
+            type: bigint
+            deal_id: true
+            column: deal_id
+            generator:
+                strategy: AUTO
+    fields:
+        dname:
+            type: string
+            length: '30'
+            column: dname
+            nullable: true
+        description:
+            type: string
+            length: 255
+            column: description
+            nullable: true
+        dealDuration:
+            type: string
+            length: '20'
+            column: deal_duration
+            nullable: true
+        createdat:
+            type: datetime
+            column: createdat
+        updatedat:
+            type: datetime
+            column: updatedat
+    lifecycleCallbacks: 
+      prePersist: [ setCreatedOnValue ]
+      preUpdate: [ setUpdatedOnValue ]

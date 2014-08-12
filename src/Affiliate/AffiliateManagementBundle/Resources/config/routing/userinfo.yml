@@ -1,0 +1,30 @@
+userinfo:
+    path:     /
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Userinfo:index" }
+
+userinfo_show:
+    path:     /{id}/show
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Userinfo:show" }
+
+userinfo_new:
+    path:     /new
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Userinfo:new" }
+
+userinfo_create:
+    path:     /create
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Userinfo:create" }
+    requirements: { _method: post }
+
+userinfo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Userinfo:edit" }
+
+userinfo_update:
+    path:     /{id}/update
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Userinfo:update" }
+    requirements: { _method: post|put }
+
+userinfo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Userinfo:delete" }
+    requirements: { _method: post|delete }

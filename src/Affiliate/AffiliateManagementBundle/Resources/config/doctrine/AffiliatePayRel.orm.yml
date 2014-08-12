@@ -1,0 +1,60 @@
+Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel:
+    type: entity
+    table: affiliate_payment_released_t
+    repositoryClass: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRelRepository
+    id:
+        id:
+            type: bigint
+            pay_rel_id: true
+            column: pay_rel_id
+            generator:
+                strategy: AUTO
+    fields:
+        releaseDate:
+            type: datetime
+            column: release_date
+            nullable: true
+        releaseAmt:
+            type: string
+            length: '50'
+            column: release_amt
+            nullable: true
+        actualAmt:
+            type: string
+            length: '50'
+            column: actual_amt
+            nullable: true
+        payMode:
+            type: string
+            length: '50'
+            column: pay_mode
+            nullable: true
+        payStatus:
+            type: string
+            length: '20'
+            column: pay_status
+            nullable: true
+        createdat:
+            type: datetime
+            column: createdat
+        updatedat:
+            type: datetime
+            column: updatedat
+    manyToOne:
+     Affiliateinfo:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo
+      inversedBy: AffiliatePayRel
+      joinColumn:
+        onDelete: "CASCADE"
+        name: aff_id
+        referencedColumnName: aff_id
+     Userinfo:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Userinfo
+      inversedBy: AffiliatePayRel
+      joinColumn:
+        onDelete: "CASCADE"
+        name: user_id
+        referencedColumnName: user_id
+    lifecycleCallbacks: 
+      prePersist: [ setCreatedOnValue ]
+      preUpdate: [ setUpdatedOnValue ]

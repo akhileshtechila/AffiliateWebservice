@@ -1,0 +1,30 @@
+affiliatedeal:
+    path:     /
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AffiliateDeal:index" }
+
+affiliatedeal_show:
+    path:     /{id}/show
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AffiliateDeal:show" }
+
+affiliatedeal_new:
+    path:     /new
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AffiliateDeal:new" }
+
+affiliatedeal_create:
+    path:     /create
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AffiliateDeal:create" }
+    requirements: { _method: post }
+
+affiliatedeal_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AffiliateDeal:edit" }
+
+affiliatedeal_update:
+    path:     /{id}/update
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AffiliateDeal:update" }
+    requirements: { _method: post|put }
+
+affiliatedeal_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AffiliateDeal:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,55 @@
+Affiliate\AffiliateManagementBundle\Entity\Admin:
+    type: entity
+    table: admininfo_t
+    repositoryClass: Affiliate\AffiliateManagementBundle\Entity\AdminRepository
+    id:
+        id:
+            type: bigint
+            admin_id: true
+            column: admin_id
+            generator:
+                strategy: AUTO
+    fields:
+        fname:
+            type: string
+            length: '30'
+            column: fname
+            nullable: true
+        lname:
+            type: string
+            length: '30'
+            column: lname
+            nullable: true
+        username:
+            type: string
+            length: '30'
+            column: username
+            nullable: false
+            unique: true
+        password:
+            type: string
+            length: '100'
+            column: password
+            nullable: true
+        email:
+            type: string
+            length: '30'
+            column: email
+            nullable: false
+            unique: true
+        createdat:
+            type: datetime
+            column: createdat
+        updatedat:
+            type: datetime
+            column: updatedat
+    oneToMany:
+     AdminPayReq:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AdminPayReq
+      mappedBy: Admin
+     AdminPayRel:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AdminPayRel
+      mappedBy: Admin
+    lifecycleCallbacks: 
+      prePersist: [ setCreatedOnValue ]
+      preUpdate: [ setUpdatedOnValue ]

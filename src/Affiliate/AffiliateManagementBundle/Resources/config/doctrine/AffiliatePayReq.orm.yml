@@ -1,0 +1,55 @@
+Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq:
+    type: entity
+    table: affiliate_payment_requested_t
+    repositoryClass: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReqRepository
+    id:
+        id:
+            type: bigint
+            pay_req_id: true
+            column: pay_req_id
+            generator:
+                strategy: AUTO
+    fields:
+        requestedAmt:
+            type: string
+            length: '50'
+            column: requested_amt
+            nullable: true
+        requestedDate:
+            type: datetime
+            column: requested_date
+            nullable: true
+        description:
+            type: string
+            length: 255
+            column: description
+            nullable: true
+        reqStatus:
+            type: string
+            length: '20'
+            column: req_status
+            nullable: true
+        createdat:
+            type: datetime
+            column: createdat
+        updatedat:
+            type: datetime
+            column: updatedat
+    manyToOne:
+     Affiliateinfo:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo
+      inversedBy: AffiliatePayReq
+      joinColumn:
+        onDelete: "CASCADE"
+        name: aff_id
+        referencedColumnName: aff_id
+     Userinfo:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Userinfo
+      inversedBy: AffiliatePayReq
+      joinColumn:
+        onDelete: "CASCADE"
+        name: user_id
+        referencedColumnName: user_id
+    lifecycleCallbacks: 
+      prePersist: [ setCreatedOnValue ]
+      preUpdate: [ setUpdatedOnValue ]

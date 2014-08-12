@@ -1,0 +1,47 @@
+affiliate_affiliate_management_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AffiliateAffiliateManagementBundle:Default:index }
+
+AffiliateAffiliateManagementBundle_userinfo:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/userinfo.yml"
+    prefix:   /userinfo
+
+##############################################
+#AFFILIATE ROUTING START HERE#
+##############################################
+AffiliateAffiliateManagementBundle_deal:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/deal.yml"
+    prefix:   /deal
+AffiliateAffiliateManagementBundle_affiliateinfo:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/affiliateinfo.yml"
+    prefix:   /affiliateinfo
+AffiliateAffiliateManagementBundle_affiliatedeal:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/affiliatedeal.yml"
+    prefix:   /affiliatedeal
+AffiliateAffiliateManagementBundle_affiliatepayreq:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/affiliatepayreq.yml"
+    prefix:   /affiliatepayreq
+AffiliateAffiliateManagementBundle_affiliatepayrel:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/affiliatepayrel.yml"
+    prefix:   /affiliatepayrel
+##############################################
+#AFFILIATE ROUTING END HERE#
+##############################################
+
+##############################################
+#ADMIN ROUTING START HERE#
+##############################################
+
+AffiliateAffiliateManagementBundle_admin:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/admin.yml"
+    prefix:   /admin
+AffiliateAffiliateManagementBundle_adminpayreq:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/adminpayreq.yml"
+    prefix:   /adminpayreq
+AffiliateAffiliateManagementBundle_adminpayrel:
+    resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing/adminpayrel.yml"
+    prefix:   /adminpayrel
+
+##############################################
+#ADMIN ROUTING END HERE#
+##############################################

@@ -1,0 +1,30 @@
+adminpayrel:
+    path:     /
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AdminPayRel:index" }
+
+adminpayrel_show:
+    path:     /{id}/show
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AdminPayRel:show" }
+
+adminpayrel_new:
+    path:     /new
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AdminPayRel:new" }
+
+adminpayrel_create:
+    path:     /create
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AdminPayRel:create" }
+    requirements: { _method: post }
+
+adminpayrel_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AdminPayRel:edit" }
+
+adminpayrel_update:
+    path:     /{id}/update
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AdminPayRel:update" }
+    requirements: { _method: post|put }
+
+adminpayrel_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:AdminPayRel:delete" }
+    requirements: { _method: post|delete }

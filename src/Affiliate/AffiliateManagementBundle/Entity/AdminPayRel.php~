@@ -1,0 +1,13 @@
+<?php
+
+namespace Affiliate\AffiliateManagementBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AdminPayRel
+ */
+class AdminPayRel
+{
+    
+}
