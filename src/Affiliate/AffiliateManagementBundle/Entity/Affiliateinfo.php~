@@ -9,6 +9,25 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Affiliateinfo
 {
+      
+     /**
+     * @ORM\PrePersist
+     */
+
+    public function setCreatedOnValue() {
+
+        $this->createdDate = new \DateTime();
+        $this->updatedDate = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedOnValue() {
+
+        $this->updatedDate = new \DateTime();
+    }
+    
     /**
      * @var integer
      */
@@ -17,17 +36,17 @@ class Affiliateinfo
     /**
      * @var string
      */
-    private $fname;
+    private $fName;
 
     /**
      * @var string
      */
-    private $lname;
+    private $lName;
 
     /**
      * @var string
      */
-    private $username;
+    private $userName;
 
     /**
      * @var string
@@ -52,7 +71,7 @@ class Affiliateinfo
     /**
      * @var string
      */
-    private $zipcode;
+    private $zipCode;
 
     /**
      * @var string
@@ -63,6 +82,26 @@ class Affiliateinfo
      * @var string
      */
     private $addedBy;
+
+    /**
+     * @var string
+     */
+    private $userType;
+
+    /**
+     * @var string
+     */
+    private $deviceToken;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedDate;
 
 
     /**
@@ -76,72 +115,72 @@ class Affiliateinfo
     }
 
     /**
-     * Set fname
+     * Set fName
      *
-     * @param string $fname
+     * @param string $fName
      * @return Affiliateinfo
      */
-    public function setFname($fname)
+    public function setFName($fName)
     {
-        $this->fname = $fname;
+        $this->fName = $fName;
 
         return $this;
     }
 
     /**
-     * Get fname
+     * Get fName
      *
      * @return string 
      */
-    public function getFname()
+    public function getFName()
     {
-        return $this->fname;
+        return $this->fName;
     }
 
     /**
-     * Set lname
+     * Set lName
      *
-     * @param string $lname
+     * @param string $lName
      * @return Affiliateinfo
      */
-    public function setLname($lname)
+    public function setLName($lName)
     {
-        $this->lname = $lname;
+        $this->lName = $lName;
 
         return $this;
     }
 
     /**
-     * Get lname
+     * Get lName
      *
      * @return string 
      */
-    public function getLname()
+    public function getLName()
     {
-        return $this->lname;
+        return $this->lName;
     }
 
     /**
-     * Set username
+     * Set userName
      *
-     * @param string $username
+     * @param string $userName
      * @return Affiliateinfo
      */
-    public function setUsername($username)
+    public function setUserName($userName)
     {
-        $this->username = $username;
+        $this->userName = $userName;
 
         return $this;
     }
 
     /**
-     * Get username
+     * Get userName
      *
      * @return string 
      */
-    public function getUsername()
+    public function getUserName()
     {
-        return $this->username;
+        return $this->userName;
     }
 
     /**
@@ -237,26 +276,26 @@ class Affiliateinfo
     }
 
     /**
-     * Set zipcode
+     * Set zipCode
      *
-     * @param string $zipcode
+     * @param string $zipCode
      * @return Affiliateinfo
      */
-    public function setZipcode($zipcode)
+    public function setZipCode($zipCode)
     {
-        $this->zipcode = $zipcode;
+        $this->zipCode = $zipCode;
 
         return $this;
     }
 
     /**
-     * Get zipcode
+     * Get zipCode
      *
      * @return string 
      */
-    public function getZipcode()
+    public function getZipCode()
     {
-        return $this->zipcode;
+        return $this->zipCode;
     }
 
     /**
@@ -304,199 +343,96 @@ class Affiliateinfo
     {
         return $this->addedBy;
     }
-    /**
-     * @var \DateTime
-     */
-    private $createdat;
 
     /**
-     * @var \DateTime
-     */
-    private $updatedat;
-
-
-    /**
-     * Set createdat
+     * Set userType
      *
-     * @param \DateTime $createdat
+     * @param string $userType
      * @return Affiliateinfo
      */
-    public function setCreatedat($createdat)
+    public function setUserType($userType)
     {
-        $this->createdat = $createdat;
+        $this->userType = $userType;
 
         return $this;
     }
 
     /**
-     * Get createdat
+     * Get userType
+     *
+     * @return string 
+     */
+    public function getUserType()
+    {
+        return $this->userType;
+    }
+
+    /**
+     * Set deviceToken
+     *
+     * @param string $deviceToken
+     * @return Affiliateinfo
+     */
+    public function setDeviceToken($deviceToken)
+    {
+        $this->deviceToken = $deviceToken;
+
+        return $this;
+    }
+
+    /**
+     * Get deviceToken
+     *
+     * @return string 
+     */
+    public function getDeviceToken()
+    {
+        return $this->deviceToken;
+    }
+
+    /**
+     * Set createdDate
+     *
+     * @param \DateTime $createdDate
+     * @return Affiliateinfo
+     */
+    public function setCreatedDate($createdDate)
+    {
+        $this->createdDate = $createdDate;
+
+        return $this;
+    }
+
+    /**
+     * Get createdDate
      *
      * @return \DateTime 
      */
-    public function getCreatedat()
+    public function getCreatedDate()
     {
-        return $this->createdat;
+        return $this->createdDate;
     }
 
     /**
-     * Set updatedat
+     * Set updatedDate
      *
-     * @param \DateTime $updatedat
+     * @param \DateTime $updatedDate
      * @return Affiliateinfo
      */
-    public function setUpdatedat($updatedat)
+    public function setUpdatedDate($updatedDate)
     {
-        $this->updatedat = $updatedat;
+        $this->updatedDate = $updatedDate;
 
         return $this;
     }
 
     /**
-     * Get updatedat
+     * Get updatedDate
      *
      * @return \DateTime 
      */
-    public function getUpdatedat()
+    public function getUpdatedDate()
     {
-        return $this->updatedat;
-    }
-
-   /**
-     * @ORM\PrePersist
-     */
-
-    public function setCreatedOnValue() {
-
-        $this->createdat = new \DateTime();
-        $this->updatedat = new \DateTime();
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedOnValue() {
-
-        $this->updatedat = new \DateTime();
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $AffiliateDeal;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->AffiliateDeal = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add AffiliateDeal
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal
-     * @return Affiliateinfo
-     */
-    public function addAffiliateDeal(\Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal)
-    {
-        $this->AffiliateDeal[] = $affiliateDeal;
-
-        return $this;
-    }
-
-    /**
-     * Remove AffiliateDeal
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal
-     */
-    public function removeAffiliateDeal(\Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal)
-    {
-        $this->AffiliateDeal->removeElement($affiliateDeal);
-    }
-
-    /**
-     * Get AffiliateDeal
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAffiliateDeal()
-    {
-        return $this->AffiliateDeal;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $AffiliatePayReq;
-
-
-    /**
-     * Add AffiliatePayReq
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayReq
-     * @return Affiliateinfo
-     */
-    public function addAffiliatePayReq(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayReq)
-    {
-        $this->AffiliatePayReq[] = $affiliatePayReq;
-
-        return $this;
-    }
-
-    /**
-     * Remove AffiliatePayReq
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayReq
-     */
-    public function removeAffiliatePayReq(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayReq)
-    {
-        $this->AffiliatePayReq->removeElement($affiliatePayReq);
-    }
-
-    /**
-     * Get AffiliatePayReq
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAffiliatePayReq()
-    {
-        return $this->AffiliatePayReq;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $AffiliatePayRel;
-
-
-    /**
-     * Add AffiliatePayRel
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel
-     * @return Affiliateinfo
-     */
-    public function addAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel)
-    {
-        $this->AffiliatePayRel[] = $affiliatePayRel;
-
-        return $this;
-    }
-
-    /**
-     * Remove AffiliatePayRel
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel
-     */
-    public function removeAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel)
-    {
-        $this->AffiliatePayRel->removeElement($affiliatePayRel);
-    }
-
-    /**
-     * Get AffiliatePayRel
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAffiliatePayRel()
-    {
-        return $this->AffiliatePayRel;
+        return $this->updatedDate;
     }
 }

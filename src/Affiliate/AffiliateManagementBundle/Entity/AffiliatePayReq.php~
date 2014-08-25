@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class AffiliatePayReq
 {
+    
     /**
      * @var integer
      */
@@ -27,12 +28,47 @@ class AffiliatePayReq
     /**
      * @var string
      */
-    private $description;
+    private $reqDescription;
 
     /**
      * @var string
      */
     private $reqStatus;
+
+    /**
+     * @var string
+     */
+    private $relDescription;
+
+    /**
+     * @var string
+     */
+    private $relStatus;
+
+    /**
+     * @var \DateTime
+     */
+    private $releasedDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedDate;
+
+    /**
+     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
+     */
+    private $UserinfoRequestedBy;
+
+    /**
+     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
+     */
+    private $UserinfoReleasedBy;
 
 
     /**
@@ -92,26 +128,26 @@ class AffiliatePayReq
     }
 
     /**
-     * Set description
+     * Set reqDescription
      *
-     * @param string $description
+     * @param string $reqDescription
      * @return AffiliatePayReq
      */
-    public function setDescription($description)
+    public function setReqDescription($reqDescription)
     {
-        $this->description = $description;
+        $this->reqDescription = $reqDescription;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get reqDescription
      *
      * @return string 
      */
-    public function getDescription()
+    public function getReqDescription()
     {
-        return $this->description;
+        return $this->reqDescription;
     }
 
     /**
@@ -136,126 +172,176 @@ class AffiliatePayReq
     {
         return $this->reqStatus;
     }
-    /**
-     * @var \DateTime
-     */
-    private $createdat;
 
     /**
-     * @var \DateTime
-     */
-    private $updatedat;
-
-    /**
-     * @var \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo
-     */
-    private $Affiliateinfo;
-
-    /**
-     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
-     */
-    private $Userinfo;
-
-
-    /**
-     * Set createdat
+     * Set relDescription
      *
-     * @param \DateTime $createdat
+     * @param string $relDescription
      * @return AffiliatePayReq
      */
-    public function setCreatedat($createdat)
+    public function setRelDescription($relDescription)
     {
-        $this->createdat = $createdat;
+        $this->relDescription = $relDescription;
 
         return $this;
     }
 
     /**
-     * Get createdat
+     * Get relDescription
+     *
+     * @return string 
+     */
+    public function getRelDescription()
+    {
+        return $this->relDescription;
+    }
+
+    /**
+     * Set relStatus
+     *
+     * @param string $relStatus
+     * @return AffiliatePayReq
+     */
+    public function setRelStatus($relStatus)
+    {
+        $this->relStatus = $relStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get relStatus
+     *
+     * @return string 
+     */
+    public function getRelStatus()
+    {
+        return $this->relStatus;
+    }
+
+    /**
+     * Set releasedDate
+     *
+     * @param \DateTime $releasedDate
+     * @return AffiliatePayReq
+     */
+    public function setReleasedDate($releasedDate)
+    {
+        $this->releasedDate = $releasedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get releasedDate
      *
      * @return \DateTime 
      */
-    public function getCreatedat()
+    public function getReleasedDate()
     {
-        return $this->createdat;
+        return $this->releasedDate;
     }
 
     /**
-     * Set updatedat
+     * Set createdDate
      *
-     * @param \DateTime $updatedat
+     * @param \DateTime $createdDate
      * @return AffiliatePayReq
      */
-    public function setUpdatedat($updatedat)
+    public function setCreatedDate($createdDate)
     {
-        $this->updatedat = $updatedat;
+        $this->createdDate = $createdDate;
 
         return $this;
     }
 
     /**
-     * Get updatedat
+     * Get createdDate
      *
      * @return \DateTime 
      */
-    public function getUpdatedat()
+    public function getCreatedDate()
     {
-        return $this->updatedat;
+        return $this->createdDate;
     }
 
     /**
-     * Set Affiliateinfo
+     * Set updatedDate
      *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo $affiliateinfo
+     * @param \DateTime $updatedDate
      * @return AffiliatePayReq
      */
-    public function setAffiliateinfo(\Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo $affiliateinfo = null)
+    public function setUpdatedDate($updatedDate)
     {
-        $this->Affiliateinfo = $affiliateinfo;
+        $this->updatedDate = $updatedDate;
 
         return $this;
     }
 
     /**
-     * Get Affiliateinfo
+     * Get updatedDate
      *
-     * @return \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo 
+     * @return \DateTime 
      */
-    public function getAffiliateinfo()
+    public function getUpdatedDate()
     {
-        return $this->Affiliateinfo;
+        return $this->updatedDate;
     }
 
     /**
-     * Set Userinfo
+     * Set UserinfoRequestedBy
      *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfo
+     * @param \Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfoRequestedBy
      * @return AffiliatePayReq
      */
-    public function setUserinfo(\Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfo = null)
+    public function setUserinfoRequestedBy(\Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfoRequestedBy = null)
     {
-        $this->Userinfo = $userinfo;
+        $this->UserinfoRequestedBy = $userinfoRequestedBy;
 
         return $this;
     }
 
     /**
-     * Get Userinfo
+     * Get UserinfoRequestedBy
      *
      * @return \Affiliate\AffiliateManagementBundle\Entity\Userinfo 
      */
-    public function getUserinfo()
+    public function getUserinfoRequestedBy()
     {
-        return $this->Userinfo;
+        return $this->UserinfoRequestedBy;
+    }
+
+    /**
+     * Set UserinfoReleasedBy
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfoReleasedBy
+     * @return AffiliatePayReq
+     */
+    public function setUserinfoReleasedBy(\Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfoReleasedBy = null)
+    {
+        $this->UserinfoReleasedBy = $userinfoReleasedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get UserinfoReleasedBy
+     *
+     * @return \Affiliate\AffiliateManagementBundle\Entity\Userinfo 
+     */
+    public function getUserinfoReleasedBy()
+    {
+        return $this->UserinfoReleasedBy;
     }
 
     /**
      * @ORM\PrePersist
      */
+
     public function setCreatedOnValue() {
 
-        $this->createdat = new \DateTime();
-        $this->updatedat = new \DateTime();
+        $this->createdDate = new \DateTime();
+        $this->updatedDate = new \DateTime();
     }
 
     /**
@@ -263,7 +349,6 @@ class AffiliatePayReq
      */
     public function setUpdatedOnValue() {
 
-        $this->updatedat = new \DateTime();
+        $this->updatedDate = new \DateTime();
     }
-    
 }

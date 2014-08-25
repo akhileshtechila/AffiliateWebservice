@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class AffiliateDeal
 {
+      
+
     /**
      * @var integer
      */
@@ -18,6 +20,16 @@ class AffiliateDeal
      * @var string
      */
     private $description;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedDate;
 
 
     /**
@@ -52,91 +64,108 @@ class AffiliateDeal
     {
         return $this->description;
     }
-    /**
-     * @var \DateTime
-     */
-    private $createdat;
 
     /**
-     * @var \DateTime
-     */
-    private $updatedat;
-
-    /**
-     * @var \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo
-     */
-    private $Affiliateinfo;
-
-
-    /**
-     * Set createdat
+     * Set createdDate
      *
-     * @param \DateTime $createdat
+     * @param \DateTime $createdDate
      * @return AffiliateDeal
      */
-    public function setCreatedat($createdat)
+    public function setCreatedDate($createdDate)
     {
-        $this->createdat = $createdat;
+        $this->createdDate = $createdDate;
 
         return $this;
     }
 
     /**
-     * Get createdat
+     * Get createdDate
      *
      * @return \DateTime 
      */
-    public function getCreatedat()
+    public function getCreatedDate()
     {
-        return $this->createdat;
+        return $this->createdDate;
     }
 
     /**
-     * Set updatedat
+     * Set updatedDate
      *
-     * @param \DateTime $updatedat
+     * @param \DateTime $updatedDate
      * @return AffiliateDeal
      */
-    public function setUpdatedat($updatedat)
+    public function setUpdatedDate($updatedDate)
     {
-        $this->updatedat = $updatedat;
+        $this->updatedDate = $updatedDate;
 
         return $this;
     }
 
     /**
-     * Get updatedat
+     * Get updatedDate
      *
      * @return \DateTime 
      */
-    public function getUpdatedat()
+    public function getUpdatedDate()
     {
-        return $this->updatedat;
+        return $this->updatedDate;
     }
+    /**
+     * @var \Affiliate\AffiliateManagementBundle\Entity\Deal
+     */
+    private $Deal;
 
     /**
-     * Set Affiliateinfo
+     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
+     */
+    private $Userinfo;
+
+
+    /**
+     * Set Deal
      *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo $affiliateinfo
+     * @param \Affiliate\AffiliateManagementBundle\Entity\Deal $deal
      * @return AffiliateDeal
      */
-    public function setAffiliateinfo(\Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo $affiliateinfo = null)
+    public function setDeal(\Affiliate\AffiliateManagementBundle\Entity\Deal $deal = null)
     {
-        $this->Affiliateinfo = $affiliateinfo;
+        $this->Deal = $deal;
 
         return $this;
     }
 
     /**
-     * Get Affiliateinfo
+     * Get Deal
      *
-     * @return \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo 
+     * @return \Affiliate\AffiliateManagementBundle\Entity\Deal 
      */
-    public function getAffiliateinfo()
+    public function getDeal()
     {
-        return $this->Affiliateinfo;
+        return $this->Deal;
     }
 
+    /**
+     * Set Userinfo
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfo
+     * @return AffiliateDeal
+     */
+    public function setUserinfo(\Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfo = null)
+    {
+        $this->Userinfo = $userinfo;
+
+        return $this;
+    }
+
+    /**
+     * Get Userinfo
+     *
+     * @return \Affiliate\AffiliateManagementBundle\Entity\Userinfo 
+     */
+    public function getUserinfo()
+    {
+        return $this->Userinfo;
+    }
     
     /**
      * @ORM\PrePersist
@@ -144,8 +173,8 @@ class AffiliateDeal
 
     public function setCreatedOnValue() {
 
-        $this->createdat = new \DateTime();
-        $this->updatedat = new \DateTime();
+        $this->createdDate = new \DateTime();
+        $this->updatedDate = new \DateTime();
     }
 
     /**
@@ -153,6 +182,7 @@ class AffiliateDeal
      */
     public function setUpdatedOnValue() {
 
-        $this->updatedat = new \DateTime();
+        $this->updatedDate = new \DateTime();
     }
+    
 }

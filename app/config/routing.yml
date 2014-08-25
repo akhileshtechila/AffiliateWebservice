@@ -1,3 +1,7 @@
+affiliate_webservices:
+    resource: "@AffiliateWebservicesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 affiliate_affiliate_management:
     resource: "@AffiliateAffiliateManagementBundle/Resources/config/routing.yml"
     prefix:   /

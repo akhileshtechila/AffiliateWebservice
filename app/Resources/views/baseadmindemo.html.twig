@@ -39,7 +39,7 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="{{path('admin')}}" class="logo">
+            <a href="#" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 Affiliate
             </a>
@@ -325,9 +325,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu" {% if app.request.attributes.get( '_route' )starts with 'admin' %} style='display:block'{% endif %}>
-                                <li {% if app.request.attributes.get( '_route' ) == 'admin' %} class='active'{% endif %}><a href="{{path('admin')}}" ><i class="fa fa-angle-double-right"></i> Admin</a></li>
+                                
                                 <li {% if app.request.attributes.get( '_route' ) == 'adminpayreq' %} class='active'{% endif %}><a href="{{path('adminpayreq')}}" ><i class="fa fa-angle-double-right"></i> Admin Payment Request</a></li>
-                                <li {% if app.request.attributes.get( '_route' ) == 'adminpayrel' %} class='active'{% endif %}><a href="{{path('adminpayrel')}}" ><i class="fa fa-angle-double-right"></i> Admin Payment Realeased</a></li>
+                                
                             </ul>
                         </li>
                         <li class="treeview" {% if app.request.attributes.get( '_route' )starts with 'userinfo' %} class='active'{% endif %}>
@@ -347,9 +347,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu" {% if app.request.attributes.get( '_route' )starts with 'affiliate' %} style='display:block'{% endif %} >
-                                <li {% if app.request.attributes.get( '_route' ) == 'affiliateinfo' %} class='active'{% endif %}><a href="{{path('affiliateinfo')}}"><i class="fa fa-angle-double-right"></i> Affiliate Info</a></li>
+                                
                                 <li {% if app.request.attributes.get( '_route' ) == 'affiliatepayreq' %} class='active'{% endif %}><a href="{{path('affiliatepayreq')}}" ><i class="fa fa-angle-double-right"></i> Affiliate Pay Request</a></li>
-                                <li {% if app.request.attributes.get( '_route' ) == 'affiliatepayrel' %} class='active'{% endif %}><a href="{{path('affiliatepayrel')}}" ><i class="fa fa-angle-double-right"></i> Affiliate Pay Realeased</a></li>
+                                
                             </ul>
                         </li>
                         
@@ -361,6 +361,18 @@
                             </a>
                             <ul class="treeview-menu" {% if app.request.attributes.get( '_route' )starts with 'deal' %} style='display:block'{% endif %}>
                                 <li><a href="{{path('deal')}}" {% if app.request.attributes.get( '_route' ) == 'deal' %} class='active'{% endif %}><i class="fa fa-angle-double-right"></i> Deal</a></li>
+                               
+                            </ul>
+                        </li>
+                        
+                         <li class="treeview" {% if app.request.attributes.get( '_route' ) == 'members' %} class='active'{% endif %}>
+                            <a href="#">
+                                <i class="fa fa-calendar"></i>
+                                <span>Members</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu" {% if app.request.attributes.get( '_route' )starts with 'members' %} style='display:block'{% endif %}>
+                                <li><a href="{{path('membersinfo')}}" {% if app.request.attributes.get( '_route' ) == 'membersinfo' %} class='active'{% endif %}><i class="fa fa-angle-double-right"></i>Members List</a></li>
                                
                             </ul>
                         </li>

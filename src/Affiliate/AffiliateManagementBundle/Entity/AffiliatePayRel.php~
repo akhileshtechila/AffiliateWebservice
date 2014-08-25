@@ -9,6 +9,26 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class AffiliatePayRel
 {
+    
+      
+     /**
+     * @ORM\PrePersist
+     */
+
+    public function setCreatedOnValue() {
+
+        $this->createdDate = new \DateTime();
+        $this->updatedDate = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedOnValue() {
+
+        $this->updatedDate = new \DateTime();
+    }
+    
     /**
      * @var integer
      */
@@ -27,11 +47,6 @@ class AffiliatePayRel
     /**
      * @var string
      */
-    private $releasedAmt;
-
-    /**
-     * @var string
-     */
     private $actualAmt;
 
     /**
@@ -44,27 +59,15 @@ class AffiliatePayRel
      */
     private $payStatus;
 
-    
-  /**
-     * @var \DateTime
-     */
-    private $createdat;
-
     /**
      * @var \DateTime
      */
-    private $updatedat;
+    private $createdDate;
 
     /**
-     * @var \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo
+     * @var \DateTime
      */
-    private $Affiliateinfo;
-
-    /**
-     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
-     */
-    private $Userinfo;
-
+    private $updatedDate;
 
 
     /**
@@ -121,29 +124,6 @@ class AffiliatePayRel
     public function getReleaseAmt()
     {
         return $this->releaseAmt;
-    }
-
-    /**
-     * Set releasedAmt
-     *
-     * @param string $releasedAmt
-     * @return AffiliatePayRel
-     */
-    public function setReleasedAmt($releasedAmt)
-    {
-        $this->releasedAmt = $releasedAmt;
-
-        return $this;
-    }
-
-    /**
-     * Get releasedAmt
-     *
-     * @return string 
-     */
-    public function getReleasedAmt()
-    {
-        return $this->releasedAmt;
     }
 
     /**
@@ -214,115 +194,50 @@ class AffiliatePayRel
     {
         return $this->payStatus;
     }
-  
+
     /**
-     * Set createdat
+     * Set createdDate
      *
-     * @param \DateTime $createdat
+     * @param \DateTime $createdDate
      * @return AffiliatePayRel
      */
-    public function setCreatedat($createdat)
+    public function setCreatedDate($createdDate)
     {
-        $this->createdat = $createdat;
+        $this->createdDate = $createdDate;
 
         return $this;
     }
 
     /**
-     * Get createdat
+     * Get createdDate
      *
      * @return \DateTime 
      */
-    public function getCreatedat()
+    public function getCreatedDate()
     {
-        return $this->createdat;
+        return $this->createdDate;
     }
 
     /**
-     * Set updatedat
+     * Set updatedDate
      *
-     * @param \DateTime $updatedat
+     * @param \DateTime $updatedDate
      * @return AffiliatePayRel
      */
-    public function setUpdatedat($updatedat)
+    public function setUpdatedDate($updatedDate)
     {
-        $this->updatedat = $updatedat;
+        $this->updatedDate = $updatedDate;
 
         return $this;
     }
 
     /**
-     * Get updatedat
+     * Get updatedDate
      *
      * @return \DateTime 
      */
-    public function getUpdatedat()
+    public function getUpdatedDate()
     {
-        return $this->updatedat;
+        return $this->updatedDate;
     }
-
-    /**
-     * Set Affiliateinfo
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo $affiliateinfo
-     * @return AffiliatePayRel
-     */
-    public function setAffiliateinfo(\Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo $affiliateinfo = null)
-    {
-        $this->Affiliateinfo = $affiliateinfo;
-
-        return $this;
-    }
-
-    /**
-     * Get Affiliateinfo
-     *
-     * @return \Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo 
-     */
-    public function getAffiliateinfo()
-    {
-        return $this->Affiliateinfo;
-    }
-
-    /**
-     * Set Userinfo
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfo
-     * @return AffiliatePayRel
-     */
-    public function setUserinfo(\Affiliate\AffiliateManagementBundle\Entity\Userinfo $userinfo = null)
-    {
-        $this->Userinfo = $userinfo;
-
-        return $this;
-    }
-
-    /**
-     * Get Userinfo
-     *
-     * @return \Affiliate\AffiliateManagementBundle\Entity\Userinfo 
-     */
-    public function getUserinfo()
-    {
-        return $this->Userinfo;
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedOnValue() {
-
-        $this->createdat = new \DateTime();
-        $this->updatedat = new \DateTime();
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedOnValue() {
-
-        $this->updatedat = new \DateTime();
-    }
-    
-    
 }

@@ -21,8 +21,8 @@ class AdminPayReqType extends AbstractType
                     'required' => true,
                     'empty_value' => 'Choose an option',
                 ))
-            ->add('Userinfo', 'entity', array(
-                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Userinfo',
+             ->add('Affiliateinfo', 'entity', array(
+                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo',
                     'property' => 'email',
                     'required' => true,
                     'empty_value' => 'Choose an option',
@@ -30,7 +30,17 @@ class AdminPayReqType extends AbstractType
             ->add('requestedAmt','text',array('required'=>true))
             ->add('requestDate', 'date', array('widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'read_only' => true))
             ->add('description','textarea',array('required'=>false))
-            ->add('reqStatus','text',array('required'=>true))
+            ->add('reqStatus', 'choice', array(
+                    'choices' => array(
+                        'Pending' => 'Pending',
+                        'Done' => 'Done',
+                        'Partial Payment' => 'Partial Payment',
+                        'Final Payment' => 'Final Payment'
+                    ),
+                    'required' => false,
+                    'empty_value' => 'Choose an option',
+                    'empty_data' => null
+                ))
         ;
     }
     

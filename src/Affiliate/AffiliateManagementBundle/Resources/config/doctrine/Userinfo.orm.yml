@@ -5,27 +5,26 @@ Affiliate\AffiliateManagementBundle\Entity\Userinfo:
     id:
         id:
             type: bigint
-            user_id: true
-            column: user_id
+            userId: true
+            column: userId
             generator:
                 strategy: AUTO
     fields:
-        fname:
+        fName:
             type: string
             length: '30'
-            column: fname
+            column: fName
             nullable: true
-        lname:
+        lName:
             type: string
             length: '30'
-            column: lname
+            column: lName
             nullable: true
-        username:
+        userName:
             type: string
             length: '30'
-            column: username
-            nullable: false
-            unique: true
+            column: userName
+            nullable: true
         password:
             type: string
             length: '100'
@@ -37,6 +36,11 @@ Affiliate\AffiliateManagementBundle\Entity\Userinfo:
             column: email
             nullable: false
             unique: true
+        city:
+            type: string
+            length: '20'
+            column: city
+            nullable: true
         state:
             type: string
             length: '20'
@@ -47,39 +51,55 @@ Affiliate\AffiliateManagementBundle\Entity\Userinfo:
             length: '20'
             column: country
             nullable: true
-        zipcode:
+        zipCode:
             type: string
             length: '20'
-            column: zipcode
+            column: zipCode
             nullable: true
         mobile:
             type: string
             length: '20'
             column: mobile
             nullable: true
-        usertype:
+        userType:
             type: string
-            length: '20'
-            column: usertype
+            length: '100'
+            column: userType
             nullable: true
-        createdat:
+        deviceToken:
+            type: string
+            length: '100'
+            column: deviceToken
+            nullable: true
+            unique: true
+        addedBy:
+            type: bigint
+            column: addedBy
+            nullable: true
+        createdDate:
             type: datetime
-            column: createdat
-        updatedat:
+            column: createdDate
+        updatedDate:
             type: datetime
-            column: updatedat
+            column: updatedDate
     oneToMany:
+     Membersinfo:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Membersinfo
+      mappedBy: Userinfo
      AffiliatePayReq:
       targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq
-      mappedBy: Userinfo
+      mappedBy: UserinfoRequestedBy
      AffiliatePayRel:
-      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel
-      mappedBy: Userinfo
-     AdminPayReq:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq
+      mappedBy: UserinfoReleasedBy
+     AdminAffiliatePayReq:
       targetEntity: Affiliate\AffiliateManagementBundle\Entity\AdminPayReq
-      mappedBy: Userinfo
-     AdminPayRel:
-      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AdminPayRel
+      mappedBy: AdmininfoRequestedBy
+     AdminAffiliatePayRel:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AdminPayReq
+      mappedBy: AdmininfoReleasedBy
+     AffiliateDeal:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal
       mappedBy: Userinfo
     lifecycleCallbacks: 
       prePersist: [ setCreatedOnValue ]

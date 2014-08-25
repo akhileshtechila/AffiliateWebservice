@@ -7,9 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Userinfo
  */
-class Userinfo
-{
- 
+class Userinfo {
+
     /**
      * @var integer
      */
@@ -18,17 +17,17 @@ class Userinfo
     /**
      * @var string
      */
-    private $fname;
+    private $fName;
 
     /**
      * @var string
      */
-    private $lname;
+    private $lName;
 
     /**
      * @var string
      */
-    private $username;
+    private $userName;
 
     /**
      * @var string
@@ -43,6 +42,11 @@ class Userinfo
     /**
      * @var string
      */
+    private $city;
+
+    /**
+     * @var string
+     */
     private $state;
 
     /**
@@ -53,7 +57,7 @@ class Userinfo
     /**
      * @var string
      */
-    private $zipcode;
+    private $zipCode;
 
     /**
      * @var string
@@ -63,17 +67,32 @@ class Userinfo
     /**
      * @var string
      */
-    private $usertype;
+    private $userType;
+
+    /**
+     * @var string
+     */
+    private $deviceToken;
+
+    /**
+     * @var integer
+     */
+    private $addedBy;
 
     /**
      * @var \DateTime
      */
-    private $createdat;
+    private $createdDate;
 
     /**
      * @var \DateTime
      */
-    private $updatedat;
+    private $updatedDate;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $Membersinfo;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -86,24 +105,13 @@ class Userinfo
     private $AffiliatePayRel;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $AdminPayReq;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $AdminPayRel;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
+        $this->Membersinfo = new \Doctrine\Common\Collections\ArrayCollection();
         $this->AffiliatePayReq = new \Doctrine\Common\Collections\ArrayCollection();
         $this->AffiliatePayRel = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->AdminPayReq = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->AdminPayRel = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -117,72 +125,72 @@ class Userinfo
     }
 
     /**
-     * Set fname
+     * Set fName
      *
-     * @param string $fname
+     * @param string $fName
      * @return Userinfo
      */
-    public function setFname($fname)
+    public function setFName($fName)
     {
-        $this->fname = $fname;
+        $this->fName = $fName;
 
         return $this;
     }
 
     /**
-     * Get fname
+     * Get fName
      *
      * @return string 
      */
-    public function getFname()
+    public function getFName()
     {
-        return $this->fname;
+        return $this->fName;
     }
 
     /**
-     * Set lname
+     * Set lName
      *
-     * @param string $lname
+     * @param string $lName
      * @return Userinfo
      */
-    public function setLname($lname)
+    public function setLName($lName)
     {
-        $this->lname = $lname;
+        $this->lName = $lName;
 
         return $this;
     }
 
     /**
-     * Get lname
+     * Get lName
      *
      * @return string 
      */
-    public function getLname()
+    public function getLName()
     {
-        return $this->lname;
+        return $this->lName;
     }
 
     /**
-     * Set username
+     * Set userName
      *
-     * @param string $username
+     * @param string $userName
      * @return Userinfo
      */
-    public function setUsername($username)
+    public function setUserName($userName)
     {
-        $this->username = $username;
+        $this->userName = $userName;
 
         return $this;
     }
 
     /**
-     * Get username
+     * Get userName
      *
      * @return string 
      */
-    public function getUsername()
+    public function getUserName()
     {
-        return $this->username;
+        return $this->userName;
     }
 
     /**
@@ -193,7 +201,7 @@ class Userinfo
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = base64_encode($password);
 
         return $this;
     }
@@ -229,6 +237,29 @@ class Userinfo
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     * @return Userinfo
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string 
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 
     /**
@@ -278,26 +309,26 @@ class Userinfo
     }
 
     /**
-     * Set zipcode
+     * Set zipCode
      *
-     * @param string $zipcode
+     * @param string $zipCode
      * @return Userinfo
      */
-    public function setZipcode($zipcode)
+    public function setZipCode($zipCode)
     {
-        $this->zipcode = $zipcode;
+        $this->zipCode = $zipCode;
 
         return $this;
     }
 
     /**
-     * Get zipcode
+     * Get zipCode
      *
      * @return string 
      */
-    public function getZipcode()
+    public function getZipCode()
     {
-        return $this->zipcode;
+        return $this->zipCode;
     }
 
     /**
@@ -324,72 +355,151 @@ class Userinfo
     }
 
     /**
-     * Set usertype
+     * Set userType
      *
-     * @param string $usertype
+     * @param string $userType
      * @return Userinfo
      */
-    public function setUsertype($usertype)
+    public function setUserType($userType)
     {
-        $this->usertype = $usertype;
+        $this->userType = $userType;
 
         return $this;
     }
 
     /**
-     * Get usertype
+     * Get userType
      *
      * @return string 
      */
-    public function getUsertype()
+    public function getUserType()
     {
-        return $this->usertype;
+        return $this->userType;
     }
 
     /**
-     * Set createdat
+     * Set deviceToken
      *
-     * @param \DateTime $createdat
+     * @param string $deviceToken
      * @return Userinfo
      */
-    public function setCreatedat($createdat)
+    public function setDeviceToken($deviceToken)
     {
-        $this->createdat = $createdat;
+        $this->deviceToken = $deviceToken;
 
         return $this;
     }
 
     /**
-     * Get createdat
+     * Get deviceToken
      *
-     * @return \DateTime 
+     * @return string 
      */
-    public function getCreatedat()
+    public function getDeviceToken()
     {
-        return $this->createdat;
+        return $this->deviceToken;
     }
 
     /**
-     * Set updatedat
+     * Set addedBy
      *
-     * @param \DateTime $updatedat
+     * @param integer $addedBy
      * @return Userinfo
      */
-    public function setUpdatedat($updatedat)
+    public function setAddedBy($addedBy)
     {
-        $this->updatedat = $updatedat;
+        $this->addedBy = $addedBy;
 
         return $this;
     }
 
     /**
-     * Get updatedat
+     * Get addedBy
+     *
+     * @return integer 
+     */
+    public function getAddedBy()
+    {
+        return $this->addedBy;
+    }
+
+    /**
+     * Set createdDate
+     *
+     * @param \DateTime $createdDate
+     * @return Userinfo
+     */
+    public function setCreatedDate($createdDate)
+    {
+        $this->createdDate = $createdDate;
+
+        return $this;
+    }
+
+    /**
+     * Get createdDate
      *
      * @return \DateTime 
      */
-    public function getUpdatedat()
+    public function getCreatedDate()
     {
-        return $this->updatedat;
+        return $this->createdDate;
+    }
+
+    /**
+     * Set updatedDate
+     *
+     * @param \DateTime $updatedDate
+     * @return Userinfo
+     */
+    public function setUpdatedDate($updatedDate)
+    {
+        $this->updatedDate = $updatedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedDate
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedDate()
+    {
+        return $this->updatedDate;
+    }
+
+    /**
+     * Add Membersinfo
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\Membersinfo $membersinfo
+     * @return Userinfo
+     */
+    public function addMembersinfo(\Affiliate\AffiliateManagementBundle\Entity\Membersinfo $membersinfo)
+    {
+        $this->Membersinfo[] = $membersinfo;
+
+        return $this;
+    }
+
+    /**
+     * Remove Membersinfo
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\Membersinfo $membersinfo
+     */
+    public function removeMembersinfo(\Affiliate\AffiliateManagementBundle\Entity\Membersinfo $membersinfo)
+    {
+        $this->Membersinfo->removeElement($membersinfo);
+    }
+
+    /**
+     * Get Membersinfo
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMembersinfo()
+    {
+        return $this->Membersinfo;
     }
 
     /**
@@ -428,10 +538,10 @@ class Userinfo
     /**
      * Add AffiliatePayRel
      *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel
+     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayRel
      * @return Userinfo
      */
-    public function addAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel)
+    public function addAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayRel)
     {
         $this->AffiliatePayRel[] = $affiliatePayRel;
 
@@ -441,9 +551,9 @@ class Userinfo
     /**
      * Remove AffiliatePayRel
      *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel
+     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayRel
      */
-    public function removeAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel)
+    public function removeAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayRel)
     {
         $this->AffiliatePayRel->removeElement($affiliatePayRel);
     }
@@ -457,74 +567,6 @@ class Userinfo
     {
         return $this->AffiliatePayRel;
     }
-
-    /**
-     * Add AdminPayReq
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminPayReq
-     * @return Userinfo
-     */
-    public function addAdminPayReq(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminPayReq)
-    {
-        $this->AdminPayReq[] = $adminPayReq;
-
-        return $this;
-    }
-
-    /**
-     * Remove AdminPayReq
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminPayReq
-     */
-    public function removeAdminPayReq(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminPayReq)
-    {
-        $this->AdminPayReq->removeElement($adminPayReq);
-    }
-
-    /**
-     * Get AdminPayReq
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAdminPayReq()
-    {
-        return $this->AdminPayReq;
-    }
-
-    /**
-     * Add AdminPayRel
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AdminPayRel $adminPayRel
-     * @return Userinfo
-     */
-    public function addAdminPayRel(\Affiliate\AffiliateManagementBundle\Entity\AdminPayRel $adminPayRel)
-    {
-        $this->AdminPayRel[] = $adminPayRel;
-
-        return $this;
-    }
-
-    /**
-     * Remove AdminPayRel
-     *
-     * @param \Affiliate\AffiliateManagementBundle\Entity\AdminPayRel $adminPayRel
-     */
-    public function removeAdminPayRel(\Affiliate\AffiliateManagementBundle\Entity\AdminPayRel $adminPayRel)
-    {
-        $this->AdminPayRel->removeElement($adminPayRel);
-    }
-
-    /**
-     * Get AdminPayRel
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAdminPayRel()
-    {
-        return $this->AdminPayRel;
-    }
-    
-    
     
     /**
      * @ORM\PrePersist
@@ -532,8 +574,8 @@ class Userinfo
 
     public function setCreatedOnValue() {
 
-        $this->createdat = new \DateTime();
-        $this->updatedat = new \DateTime();
+        $this->createdDate = new \DateTime();
+        $this->updatedDate = new \DateTime();
     }
 
     /**
@@ -541,6 +583,82 @@ class Userinfo
      */
     public function setUpdatedOnValue() {
 
-        $this->updatedat = new \DateTime();
+        $this->updatedDate = new \DateTime();
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $AdminAffiliatePayReq;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $AdminAffiliatePayRel;
+
+
+    /**
+     * Add AdminAffiliatePayReq
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayReq
+     * @return Userinfo
+     */
+    public function addAdminAffiliatePayReq(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayReq)
+    {
+        $this->AdminAffiliatePayReq[] = $adminAffiliatePayReq;
+
+        return $this;
+    }
+
+    /**
+     * Remove AdminAffiliatePayReq
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayReq
+     */
+    public function removeAdminAffiliatePayReq(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayReq)
+    {
+        $this->AdminAffiliatePayReq->removeElement($adminAffiliatePayReq);
+    }
+
+    /**
+     * Get AdminAffiliatePayReq
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAdminAffiliatePayReq()
+    {
+        return $this->AdminAffiliatePayReq;
+    }
+
+    /**
+     * Add AdminAffiliatePayRel
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayRel
+     * @return Userinfo
+     */
+    public function addAdminAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayRel)
+    {
+        $this->AdminAffiliatePayRel[] = $adminAffiliatePayRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove AdminAffiliatePayRel
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayRel
+     */
+    public function removeAdminAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayRel)
+    {
+        $this->AdminAffiliatePayRel->removeElement($adminAffiliatePayRel);
+    }
+
+    /**
+     * Get AdminAffiliatePayRel
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAdminAffiliatePayRel()
+    {
+        return $this->AdminAffiliatePayRel;
     }
 }

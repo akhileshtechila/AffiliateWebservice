@@ -56,8 +56,6 @@
                             <th>Requesteddate</th>
                             <th>Description</th>
                             <th>Reqstatus</th>
-                            <th>Createdat</th>
-                            <th>Updatedat</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -69,8 +67,6 @@
                                 <td>{% if entity.requestedDate %}{{ entity.requestedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                                 <td>{{ entity.description }}</td>
                                 <td>{{ entity.reqStatus }}</td>
-                                <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
-                                <td>{% if entity.updatedat %}{{ entity.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
                                 <td>
                                     <ul>
                                         <li>
@@ -91,8 +87,6 @@
                             <th>Requesteddate</th>
                             <th>Description</th>
                             <th>Reqstatus</th>
-                            <th>Createdat</th>
-                            <th>Updatedat</th>
                             <th>Actions</th>
                         </tr>
                     </tfoot>

@@ -1,0 +1,7 @@
+parameters:
+#    affiliate_webservices.example.class: Affiliate\WebservicesBundle\Example
+
+services:
+#    affiliate_webservices.example:
+#        class: %affiliate_webservices.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

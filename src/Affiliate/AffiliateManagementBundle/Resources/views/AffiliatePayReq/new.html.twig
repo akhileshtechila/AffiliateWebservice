@@ -50,7 +50,12 @@
                 allowClear: true
             });
 
-            $("#affiliatepayreq_Userinfo").select2({
+            $("#affiliatepayreq_Admin").select2({
+                placeholder: "Select a Option",
+                allowClear: true
+            });
+            
+            $("#affiliatepayreq_reqStatus").select2({
                 placeholder: "Select a Option",
                 allowClear: true
             });
@@ -73,8 +78,8 @@
                 {{form_start(form, {'enctype': 'multipart/form-data' ,'attr':{'class':'' ,'role':'form'}}) }}
                 <!-- text input -->
                 <div class="form-group">
-                    <label>User name</label>
-                    {{ form_widget(form.Userinfo,{'attr':{'class':""}}) }} 
+                    <label>Admin name</label>
+                    {{ form_widget(form.Admin,{'attr':{'class':""}}) }} 
                 </div>
 
                 <!-- text input -->
@@ -83,6 +88,12 @@
                     {{ form_widget(form.Affiliateinfo,{'attr':{'class':""}}) }} 
 
                 </div>
+                
+                <div class="form-group">
+                    <label>Req Status</label>
+                    {{ form_widget(form.reqStatus,{'attr':{'class':""}}) }} 
+                </div>
+                    
 
                 <!-- text input -->
                 <div class="form-group">
@@ -103,10 +114,7 @@
                     {{ form_widget(form.description,{'attr':{'class':"form-control"}}) }} 
                 </div>
 
-                <div class="form-group">
-                    <label>Req Status</label>
-                    {{ form_widget(form.reqStatus,{'attr':{'class':"form-control"}}) }} 
-                </div>
+              
 
                 {{ form_widget(form._token) }}
                 <div class="form-group">

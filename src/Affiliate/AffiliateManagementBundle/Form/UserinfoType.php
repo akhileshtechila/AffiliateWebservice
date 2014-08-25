@@ -15,10 +15,10 @@ class UserinfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fname','text',array('required'=>true))
-            ->add('lname','text',array('required'=>true))
+            ->add('fName','text',array('required'=>true))
+            ->add('lName','text',array('required'=>true))
             ->add('email','email',array('required'=>true))
-            ->add('username','text',array('required'=>true))
+            ->add('userName','text',array('required'=>true))
             ->add('password', 'repeated', array(
                     'type' => 'password',
                     'invalid_message' => 'The password fields must match.',
@@ -30,9 +30,18 @@ class UserinfoType extends AbstractType
          
             ->add('state','text',array('required'=>true))
             ->add('country','text',array('required'=>true))
-            ->add('zipcode','text',array('required'=>true))
+            ->add('zipCode','text',array('required'=>true))
             ->add('mobile','text',array('required'=>true))
-            ->add('usertype','text',array('required'=>true))
+            ->add('userType','choice', array(
+                    'choices' => array(
+                        'admin' => 'admin',
+                        'affiliate' => 'affiliate'
+                    ),
+                    'required' => false,
+                    'empty_value' => 'Choose an option',
+                    'empty_data' => null
+                ))
+            ->add('deviceToken','text',array('required'=>true))
         ;
     }
     

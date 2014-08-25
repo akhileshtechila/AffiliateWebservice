@@ -15,7 +15,7 @@ class DealType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dname','text',array('required'=>true))
+            ->add('dName','text',array('required'=>true))
             ->add('description','textarea',array('required'=>false))
             ->add('dealDuration','text',array('required'=>false))
         ;

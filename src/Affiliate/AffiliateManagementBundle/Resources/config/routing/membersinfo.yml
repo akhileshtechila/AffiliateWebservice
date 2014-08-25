@@ -1,0 +1,30 @@
+membersinfo:
+    path:     /
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Membersinfo:index" }
+
+membersinfo_show:
+    path:     /{id}/show
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Membersinfo:show" }
+
+membersinfo_new:
+    path:     /new
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Membersinfo:new" }
+
+membersinfo_create:
+    path:     /create
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Membersinfo:create" }
+    requirements: { _method: post }
+
+membersinfo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Membersinfo:edit" }
+
+membersinfo_update:
+    path:     /{id}/update
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Membersinfo:update" }
+    requirements: { _method: post|put }
+
+membersinfo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AffiliateAffiliateManagementBundle:Membersinfo:delete" }
+    requirements: { _method: post|delete }

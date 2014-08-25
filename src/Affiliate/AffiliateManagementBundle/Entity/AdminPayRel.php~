@@ -7,7 +7,238 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AdminPayRel
  */
-class AdminPayRel
-{
+class AdminPayRel{
+    
+      
+    
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     */
+    private $releasedDate;
+
+    /**
+     * @var string
+     */
+    private $releasedAmt;
+
+    /**
+     * @var string
+     */
+    private $actualAmt;
+
+    /**
+     * @var string
+     */
+    private $payMode;
+
+    /**
+     * @var string
+     */
+    private $payStatus;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedDate;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set releasedDate
+     *
+     * @param \DateTime $releasedDate
+     * @return AdminPayRel
+     */
+    public function setReleasedDate($releasedDate)
+    {
+        $this->releasedDate = $releasedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get releasedDate
+     *
+     * @return \DateTime 
+     */
+    public function getReleasedDate()
+    {
+        return $this->releasedDate;
+    }
+
+    /**
+     * Set releasedAmt
+     *
+     * @param string $releasedAmt
+     * @return AdminPayRel
+     */
+    public function setReleasedAmt($releasedAmt)
+    {
+        $this->releasedAmt = $releasedAmt;
+
+        return $this;
+    }
+
+    /**
+     * Get releasedAmt
+     *
+     * @return string 
+     */
+    public function getReleasedAmt()
+    {
+        return $this->releasedAmt;
+    }
+
+    /**
+     * Set actualAmt
+     *
+     * @param string $actualAmt
+     * @return AdminPayRel
+     */
+    public function setActualAmt($actualAmt)
+    {
+        $this->actualAmt = $actualAmt;
+
+        return $this;
+    }
+
+    /**
+     * Get actualAmt
+     *
+     * @return string 
+     */
+    public function getActualAmt()
+    {
+        return $this->actualAmt;
+    }
+
+    /**
+     * Set payMode
+     *
+     * @param string $payMode
+     * @return AdminPayRel
+     */
+    public function setPayMode($payMode)
+    {
+        $this->payMode = $payMode;
+
+        return $this;
+    }
+
+    /**
+     * Get payMode
+     *
+     * @return string 
+     */
+    public function getPayMode()
+    {
+        return $this->payMode;
+    }
+
+    /**
+     * Set payStatus
+     *
+     * @param string $payStatus
+     * @return AdminPayRel
+     */
+    public function setPayStatus($payStatus)
+    {
+        $this->payStatus = $payStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get payStatus
+     *
+     * @return string 
+     */
+    public function getPayStatus()
+    {
+        return $this->payStatus;
+    }
+
+    /**
+     * Set createdDate
+     *
+     * @param \DateTime $createdDate
+     * @return AdminPayRel
+     */
+    public function setCreatedDate($createdDate)
+    {
+        $this->createdDate = $createdDate;
+
+        return $this;
+    }
+
+    /**
+     * Get createdDate
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedDate()
+    {
+        return $this->createdDate;
+    }
+
+    /**
+     * Set updatedDate
+     *
+     * @param \DateTime $updatedDate
+     * @return AdminPayRel
+     */
+    public function setUpdatedDate($updatedDate)
+    {
+        $this->updatedDate = $updatedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedDate
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedDate()
+    {
+        return $this->updatedDate;
+    }
+    
+     /**
+     * @ORM\PrePersist
+     */
+
+    public function setCreatedOnValue() {
+
+        $this->createdDate = new \DateTime();
+        $this->updatedDate = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedOnValue() {
+
+        $this->updatedDate = new \DateTime();
+    }
     
 }

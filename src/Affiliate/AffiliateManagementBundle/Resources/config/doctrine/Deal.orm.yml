@@ -1,19 +1,19 @@
 Affiliate\AffiliateManagementBundle\Entity\Deal:
     type: entity
-    table: DEAL_T
+    table: deal_t
     repositoryClass: Affiliate\AffiliateManagementBundle\Entity\DealRepository
     id:
         id:
             type: bigint
-            deal_id: true
-            column: deal_id
+            dealId: true
+            column: dealId
             generator:
                 strategy: AUTO
     fields:
-        dname:
+        dName:
             type: string
             length: '30'
-            column: dname
+            column: dName
             nullable: true
         description:
             type: string
@@ -23,14 +23,18 @@ Affiliate\AffiliateManagementBundle\Entity\Deal:
         dealDuration:
             type: string
             length: '20'
-            column: deal_duration
+            column: dealDuration
             nullable: true
-        createdat:
+        createdDate:
             type: datetime
-            column: createdat
-        updatedat:
+            column: createdDate
+        updatedDate:
             type: datetime
-            column: updatedat
+            column: updatedDate
+    oneToMany:
+     AffiliateDeal:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal
+      mappedBy: Deal
     lifecycleCallbacks: 
       prePersist: [ setCreatedOnValue ]
       preUpdate: [ setUpdatedOnValue ]

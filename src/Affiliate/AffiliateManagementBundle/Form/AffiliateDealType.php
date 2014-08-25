@@ -21,7 +21,7 @@ class AffiliateDealType extends AbstractType
                     'required' => true,
                     'empty_value' => 'Choose an option',
                 ))
-            ->add('description')
+            ->add('description','textarea',array( 'required' => true ))
 
         ;
     }

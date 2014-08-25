@@ -1,0 +1,22 @@
+affiliate_webservices_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AffiliateWebservicesBundle:Default:index }
+LoginService:
+    path:     LoginService
+    defaults: { _controller: AffiliateWebservicesBundle:LoginService:index }
+_sign_up_user:
+    path:     SignUpUser
+    defaults: { _controller: AffiliateWebservicesBundle:SignUpUser:SignUpUser }
+_members_listing:
+    path:     /MembersListing
+    defaults: { _controller: AffiliateWebservicesBundle:MembersListing:MembersListing }
+_deal:
+    path:     /Deal
+    defaults: { _controller: AffiliateWebservicesBundle:Deal:Deal }
+_affiliate_deal:
+    path:     /AffiliateDeal
+    defaults: { _controller: AffiliateWebservicesBundle:AffiliateDeal:AffiliateDeal }
+
+_deal_listing:
+    path:     /DealListing
+    defaults: { _controller: AffiliateWebservicesBundle:DealListing:DealListing }

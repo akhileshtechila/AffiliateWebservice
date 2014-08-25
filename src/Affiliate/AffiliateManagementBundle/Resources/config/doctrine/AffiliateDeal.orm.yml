@@ -5,8 +5,8 @@ Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal:
     id:
         id:
             type: bigint
-            aff_deal_id: true
-            column: aff_deal_id
+            affilDealId: true
+            column: affilDealId
             generator:
                 strategy: AUTO
     fields:
@@ -15,20 +15,27 @@ Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal:
             length: 255
             column: description
             nullable: true
-        createdat:
+        createdDate:
             type: datetime
-            column: createdat
-        updatedat:
+            column: createdDate
+        updatedDate:
             type: datetime
-            column: updatedat
+            column: updatedDate
     manyToOne:
-     Affiliateinfo:
-      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo
+     Deal:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Deal
       inversedBy: AffiliateDeal
       joinColumn:
         onDelete: "CASCADE"
-        name: aff_id
-        referencedColumnName: aff_id
+        name: dealId
+        referencedColumnName: dealId
+     Userinfo:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Userinfo
+      inversedBy: AffiliateDeal
+      joinColumn:
+        onDelete: "CASCADE"
+        name: AffiliateId
+        referencedColumnName: userId
     lifecycleCallbacks: 
       prePersist: [ setCreatedOnValue ]
       preUpdate: [ setUpdatedOnValue ]

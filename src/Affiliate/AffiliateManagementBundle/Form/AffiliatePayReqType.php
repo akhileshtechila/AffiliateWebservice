@@ -14,8 +14,8 @@ class AffiliatePayReqType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-                ->add('Userinfo', 'entity', array(
-                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Userinfo',
+                ->add('Admin', 'entity', array(
+                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Admin',
                     'property' => 'email',
                     'required' => true,
                     'empty_value' => 'Choose an option',
@@ -26,13 +26,22 @@ class AffiliatePayReqType extends AbstractType {
                     'required' => true,
                     'empty_value' => 'Choose an option',
                 ))
-                ->add('requestedAmt','text',array('required'=>true))
+                ->add('requestedAmt', 'text', array('required' => true))
                 ->add('requestedDate', 'date', array('widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'read_only' => true))
-                ->add('description','textarea',array('required'=>true))
-                ->add('reqStatus','text',array('required'=>true))
-
-
-        ;
+                ->add('description', 'textarea', array('required' => true))
+//                ->add('reqStatus','text',array('required'=>true))
+                ->add('reqStatus', 'choice', array(
+                    'choices' => array(
+                        'Pending' => 'Pending',
+                        'Done' => 'Done',
+                        'Partial Payment' => 'Partial Payment',
+                        'Final Payment' => 'Final Payment'
+                    ),
+                    'required' => false,
+                    'empty_value' => 'Choose an option',
+                    'empty_data' => null
+                ))
+                ;
     }
 
     /**

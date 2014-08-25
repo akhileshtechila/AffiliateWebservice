@@ -67,14 +67,14 @@
                         {% for entity in entities %}
                             <tr>
                                 <td><a href="{{ path('userinfo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                                <td>{{ entity.fname }}</td>
-                                <td>{{ entity.lname }}</td>
-                                <td>{{ entity.username }}</td>
+                                <td>{{ entity.fName }}</td>
+                                <td>{{ entity.lName }}</td>
+                                <td>{{ entity.userName }}</td>
                                 <td>{{ entity.email }}</td>
                                 <td>{{ entity.state }}</td>
                                 <td>{{ entity.country }}</td>
                                 <td>{{ entity.mobile }}</td>
-                                <td>{{ entity.usertype }}</td>
+                                <td>{{ entity.userType }}</td>
                                 <td>
                                     <ul>
                                         <li>

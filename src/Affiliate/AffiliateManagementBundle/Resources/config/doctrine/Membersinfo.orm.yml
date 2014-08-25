@@ -1,0 +1,76 @@
+Affiliate\AffiliateManagementBundle\Entity\Membersinfo:
+    type: entity
+    table: membersinfo_t
+    repositoryClass: Affiliate\AffiliateManagementBundle\Entity\MembersinfoRepository
+    id:
+        id:
+            type: bigint
+            membersId: true
+            column: membersId
+            generator:
+                strategy: AUTO
+    fields:
+        fName:
+            type: string
+            length: '30'
+            column: fName
+            nullable: true
+        lName:
+            type: string
+            length: '30'
+            column: lName
+            nullable: true
+        email:
+            type: string
+            length: '30'
+            column: email
+            nullable: false
+            unique: true
+        state:
+            type: string
+            length: '20'
+            column: state
+            nullable: true
+        country:
+            type: string
+            length: '20'
+            column: country
+            nullable: true
+        zipCode:
+            type: string
+            length: '20'
+            column: zipcode
+            nullable: true
+        mobile:
+            type: string
+            length: '100'
+            column: mobile
+            nullable: true
+        userType:
+            type: string
+            length: '100'
+            column: userType
+            nullable: true
+        deviceToken:
+            type: string
+            length: '100'
+            column: deviceToken
+            nullable: true
+            unique: true
+        createdDate:
+            type: datetime
+            column: createdDate
+        updatedDate:
+            type: datetime
+            column: updatedDate
+    manyToOne:
+     Userinfo:
+      targetEntity: Affiliate\AffiliateManagementBundle\Entity\Userinfo
+      inversedBy: Membersinfo
+      joinColumn:
+        onDelete: "CASCADE"
+        name: addedBy
+        referencedColumnName: userId
+    lifecycleCallbacks: 
+      prePersist: [ setCreatedOnValue ]
+      preUpdate: [ setUpdatedOnValue ]

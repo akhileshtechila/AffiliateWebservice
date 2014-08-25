@@ -2,25 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/AffiliatePayReq/new.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/app/Resources/views/baseadmindemo.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Form/AffiliatePayReqType.php</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/AffiliatePayRel/new.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/Deal/edit.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Form/DealType.php</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Form/UserinfoType.php</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/Deal/new.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Form/AffiliateinfoType.php</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/Affiliateinfo/edit.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/AffiliatePayRel/edit.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/Userinfo/new.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Form/AdminPayReqType.php</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/AdminPayRel/new.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Form/AffiliatePayRelType.php</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/Affiliateinfo/new.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/AffiliatePayReq/edit.html.twig</file>
-            <file>file:/C:/wamp/www/Affiliatemanagement/src/Affiliate/AffiliateManagementBundle/Resources/views/AdminPayRel/edit.html.twig</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

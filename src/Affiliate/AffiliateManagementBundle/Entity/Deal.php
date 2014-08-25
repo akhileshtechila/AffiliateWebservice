@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Deal
 {
+ 
+    
     /**
      * @var integer
      */
@@ -17,7 +19,7 @@ class Deal
     /**
      * @var string
      */
-    private $dname;
+    private $dName;
 
     /**
      * @var string
@@ -28,6 +30,16 @@ class Deal
      * @var string
      */
     private $dealDuration;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedDate;
 
 
     /**
@@ -41,26 +53,26 @@ class Deal
     }
 
     /**
-     * Set dname
+     * Set dName
      *
-     * @param string $dname
+     * @param string $dName
      * @return Deal
      */
-    public function setDname($dname)
+    public function setDName($dName)
     {
-        $this->dname = $dname;
+        $this->dName = $dName;
 
         return $this;
     }
 
     /**
-     * Get dname
+     * Get dName
      *
      * @return string 
      */
-    public function getDname()
+    public function getDName()
     {
-        return $this->dname;
+        return $this->dName;
     }
 
     /**
@@ -108,71 +120,62 @@ class Deal
     {
         return $this->dealDuration;
     }
-    /**
-     * @var \DateTime
-     */
-    private $createdat;
 
     /**
-     * @var \DateTime
-     */
-    private $updatedat;
-
-
-    /**
-     * Set createdat
+     * Set createdDate
      *
-     * @param \DateTime $createdat
+     * @param \DateTime $createdDate
      * @return Deal
      */
-    public function setCreatedat($createdat)
+    public function setCreatedDate($createdDate)
     {
-        $this->createdat = $createdat;
+        $this->createdDate = $createdDate;
 
         return $this;
     }
 
     /**
-     * Get createdat
+     * Get createdDate
      *
      * @return \DateTime 
      */
-    public function getCreatedat()
+    public function getCreatedDate()
     {
-        return $this->createdat;
+        return $this->createdDate;
     }
 
     /**
-     * Set updatedat
+     * Set updatedDate
      *
-     * @param \DateTime $updatedat
+     * @param \DateTime $updatedDate
      * @return Deal
      */
-    public function setUpdatedat($updatedat)
+    public function setUpdatedDate($updatedDate)
     {
-        $this->updatedat = $updatedat;
+        $this->updatedDate = $updatedDate;
 
         return $this;
     }
 
     /**
-     * Get updatedat
+     * Get updatedDate
      *
      * @return \DateTime 
      */
-    public function getUpdatedat()
+    public function getUpdatedDate()
     {
-        return $this->updatedat;
+        return $this->updatedDate;
     }
-
-    /**
+    
+    
+     /**
      * @ORM\PrePersist
      */
 
     public function setCreatedOnValue() {
 
-        $this->createdat = new \DateTime();
-        $this->updatedat = new \DateTime();
+        $this->createdDate = new \DateTime();
+        $this->updatedDate = new \DateTime();
     }
 
     /**
@@ -180,6 +183,51 @@ class Deal
      */
     public function setUpdatedOnValue() {
 
-        $this->updatedat = new \DateTime();
+        $this->updatedDate = new \DateTime();
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $AffiliateDeal;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->AffiliateDeal = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add AffiliateDeal
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal
+     * @return Deal
+     */
+    public function addAffiliateDeal(\Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal)
+    {
+        $this->AffiliateDeal[] = $affiliateDeal;
+
+        return $this;
+    }
+
+    /**
+     * Remove AffiliateDeal
+     *
+     * @param \Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal
+     */
+    public function removeAffiliateDeal(\Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal)
+    {
+        $this->AffiliateDeal->removeElement($affiliateDeal);
+    }
+
+    /**
+     * Get AffiliateDeal
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAffiliateDeal()
+    {
+        return $this->AffiliateDeal;
     }
 }
