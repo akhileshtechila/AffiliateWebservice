@@ -27,4 +27,4 @@ deal_update:
 deal_delete:
     path:     /{id}/delete
     defaults: { _controller: "AffiliateAffiliateManagementBundle:Deal:delete" }
-    requirements: { _method: post|delete }
+#    requirements: { _method: post|delete }

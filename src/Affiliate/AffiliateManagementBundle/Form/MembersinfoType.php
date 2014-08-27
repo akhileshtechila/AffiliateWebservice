@@ -43,7 +43,12 @@ class MembersinfoType extends AbstractType
             ->add('country','text',array('required'=>true))
             ->add('zipCode','text',array('required'=>true))
             ->add('mobile','text',array('required'=>true))
-            //->add('addedBy','text',array('required'=>true))
+            ->add('Userinfo','entity', array(
+                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Userinfo',
+                    'property' => 'email',
+                    'required' => true,
+                    'empty_value' => 'Choose an option',
+                ))
            
             ->add('deviceToken','text',array('required'=>true))
         ;

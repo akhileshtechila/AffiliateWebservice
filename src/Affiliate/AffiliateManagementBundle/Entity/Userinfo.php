@@ -103,6 +103,11 @@ class Userinfo {
      * @var \Doctrine\Common\Collections\Collection
      */
     private $AffiliatePayRel;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $AffiliateDeal;
 
     /**
      * Constructor
@@ -661,11 +666,6 @@ class Userinfo {
     {
         return $this->AdminAffiliatePayRel;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $AffiliateDeal;
-
 
     /**
      * Add AffiliateDeal

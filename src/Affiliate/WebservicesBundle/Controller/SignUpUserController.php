@@ -75,10 +75,10 @@ class SignUpUserController extends Controller {
             $userInfo->setDeviceToken($deviceToken);
             $userInfo->setCity($city);
 
-            if($userId != ""){
-                  $userInfo->setAddedBy($userId);
+            if ($userId != "") {
+                $userInfo->setAddedBy($userId);
             }
-            
+
             $em->persist($userInfo);
             $em->flush();
 
@@ -103,7 +103,6 @@ class SignUpUserController extends Controller {
                                     )
                             )
                     );
-                  
                 }
                 if ($this->get('mailer')->send($message)) {
                     return new JsonResponse($this->userSuccesfullyInserted($dataQuery));

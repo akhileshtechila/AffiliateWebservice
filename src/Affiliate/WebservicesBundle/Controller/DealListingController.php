@@ -19,6 +19,11 @@ class DealListingController extends Controller {
 
         $entities = $em->getRepository('AffiliateAffiliateManagementBundle:Deal')->findAll();
 
+        if(!$entities){
+             $errorMsg = "No Data Found";
+             return new JsonResponse($this>blankField($errorMsg));
+         }
+        
         ######################################################
         /* VerY Very Important COde */
         $dataentity = array();

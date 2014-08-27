@@ -135,6 +135,82 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // affiliate_webservices_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliate_webservices_homepage')), array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        // affiliate_webservices_LoginService
+        if ($pathinfo === '/LoginService') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\LoginServiceController::indexAction',  '_route' => 'affiliate_webservices_LoginService',);
+        }
+
+        // affiliate_webservices_sign_up_user
+        if ($pathinfo === '/SignUpUser') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\SignUpUserController::SignUpUserAction',  '_route' => 'affiliate_webservices_sign_up_user',);
+        }
+
+        // affiliate_webservices_members_listing
+        if ($pathinfo === '/MembersListing') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\MembersListingController::MembersListingAction',  '_route' => 'affiliate_webservices_members_listing',);
+        }
+
+        // affiliate_webservices_deal
+        if ($pathinfo === '/Deal') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\DealController::DealAction',  '_route' => 'affiliate_webservices_deal',);
+        }
+
+        // affiliate_webservices_affiliate_deal
+        if ($pathinfo === '/AffiliateDeal') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\AffiliateDealController::AffiliateDealAction',  '_route' => 'affiliate_webservices_affiliate_deal',);
+        }
+
+        // affiliate_webservices_deal_listing
+        if ($pathinfo === '/DealListing') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\DealListingController::DealListingAction',  '_route' => 'affiliate_webservices_deal_listing',);
+        }
+
+        if (0 === strpos($pathinfo, '/A')) {
+            // affiliate_webservices_admin_payment_request
+            if ($pathinfo === '/AdminPaymentRequest') {
+                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\AdminPaymentRequestController::AdminPaymentRequestAction',  '_route' => 'affiliate_webservices_admin_payment_request',);
+            }
+
+            // affiliate_webservices_affiliate_payment_request
+            if ($pathinfo === '/AffiliatePaymentRequest') {
+                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\AffiliatePaymentRequestController::AffiliatePaymentRequestAction',  '_route' => 'affiliate_webservices_affiliate_payment_request',);
+            }
+
+        }
+
+        // affiliate_webservices_edit_admin_payment_request
+        if ($pathinfo === '/EditAdminPaymentRequest') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAdminPaymentRequestController::EditAdminPaymentRequestAction',  '_route' => 'affiliate_webservices_edit_admin_payment_request',);
+        }
+
+        // affiliate_webservices_listing_admin_pay_req
+        if ($pathinfo === '/ListingAdminPayReq') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\ListingAdminPayReqController::ListingAdminPayReqAction',  '_route' => 'affiliate_webservices_listing_admin_pay_req',);
+        }
+
+        if (0 === strpos($pathinfo, '/Edit')) {
+            // affiliate_webservices_edit_deal
+            if ($pathinfo === '/EditDeal') {
+                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditDealController::EditDealAction',  '_route' => 'affiliate_webservices_edit_deal',);
+            }
+
+            // affiliate_webservices_edit_user_info
+            if ($pathinfo === '/EditUserInfo') {
+                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditUserInfoController::EditUserInfoAction',  '_route' => 'affiliate_webservices_edit_user_info',);
+            }
+
+            // affiliate_webservices_edit_affiliate_deal
+            if ($pathinfo === '/EditAffiliateDeal') {
+                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAffiliateDealController::EditAffiliateDealAction',  '_route' => 'affiliate_webservices_edit_affiliate_deal',);
+            }
+
+        }
+
         // affiliate_affiliate_management_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliate_affiliate_management_homepage')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\DefaultController::indexAction',));
@@ -249,79 +325,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // deal_delete
             if (preg_match('#^/deal/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_deal_delete;
-                }
-
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'deal_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\DealController::deleteAction',));
             }
-            not_deal_delete:
 
         }
 
         if (0 === strpos($pathinfo, '/a')) {
             if (0 === strpos($pathinfo, '/affiliate')) {
-                if (0 === strpos($pathinfo, '/affiliateinfo')) {
-                    // affiliateinfo
-                    if (rtrim($pathinfo, '/') === '/affiliateinfo') {
-                        if (substr($pathinfo, -1) !== '/') {
-                            return $this->redirect($pathinfo.'/', 'affiliateinfo');
-                        }
-
-                        return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliateinfoController::indexAction',  '_route' => 'affiliateinfo',);
-                    }
-
-                    // affiliateinfo_show
-                    if (preg_match('#^/affiliateinfo/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliateinfo_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliateinfoController::showAction',));
-                    }
-
-                    // affiliateinfo_new
-                    if ($pathinfo === '/affiliateinfo/new') {
-                        return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliateinfoController::newAction',  '_route' => 'affiliateinfo_new',);
-                    }
-
-                    // affiliateinfo_create
-                    if ($pathinfo === '/affiliateinfo/create') {
-                        if ($this->context->getMethod() != 'POST') {
-                            $allow[] = 'POST';
-                            goto not_affiliateinfo_create;
-                        }
-
-                        return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliateinfoController::createAction',  '_route' => 'affiliateinfo_create',);
-                    }
-                    not_affiliateinfo_create:
-
-                    // affiliateinfo_edit
-                    if (preg_match('#^/affiliateinfo/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliateinfo_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliateinfoController::editAction',));
-                    }
-
-                    // affiliateinfo_update
-                    if (preg_match('#^/affiliateinfo/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                        if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                            $allow = array_merge($allow, array('POST', 'PUT'));
-                            goto not_affiliateinfo_update;
-                        }
-
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliateinfo_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliateinfoController::updateAction',));
-                    }
-                    not_affiliateinfo_update:
-
-                    // affiliateinfo_delete
-                    if (preg_match('#^/affiliateinfo/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                            $allow = array_merge($allow, array('POST', 'DELETE'));
-                            goto not_affiliateinfo_delete;
-                        }
-
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliateinfo_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliateinfoController::deleteAction',));
-                    }
-                    not_affiliateinfo_delete:
-
-                }
-
                 if (0 === strpos($pathinfo, '/affiliatedeal')) {
                     // affiliatedeal
                     if (rtrim($pathinfo, '/') === '/affiliatedeal') {
@@ -382,313 +392,187 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 }
 
-                if (0 === strpos($pathinfo, '/affiliatepayre')) {
-                    if (0 === strpos($pathinfo, '/affiliatepayreq')) {
-                        // affiliatepayreq
-                        if (rtrim($pathinfo, '/') === '/affiliatepayreq') {
-                            if (substr($pathinfo, -1) !== '/') {
-                                return $this->redirect($pathinfo.'/', 'affiliatepayreq');
-                            }
-
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::indexAction',  '_route' => 'affiliatepayreq',);
+                if (0 === strpos($pathinfo, '/affiliatepayreq')) {
+                    // affiliatepayreq
+                    if (rtrim($pathinfo, '/') === '/affiliatepayreq') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'affiliatepayreq');
                         }
 
-                        // affiliatepayreq_show
-                        if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::showAction',));
-                        }
-
-                        // affiliatepayreq_new
-                        if ($pathinfo === '/affiliatepayreq/new') {
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::newAction',  '_route' => 'affiliatepayreq_new',);
-                        }
-
-                        // affiliatepayreq_create
-                        if ($pathinfo === '/affiliatepayreq/create') {
-                            if ($this->context->getMethod() != 'POST') {
-                                $allow[] = 'POST';
-                                goto not_affiliatepayreq_create;
-                            }
-
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::createAction',  '_route' => 'affiliatepayreq_create',);
-                        }
-                        not_affiliatepayreq_create:
-
-                        // affiliatepayreq_edit
-                        if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::editAction',));
-                        }
-
-                        // affiliatepayreq_update
-                        if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                                $allow = array_merge($allow, array('POST', 'PUT'));
-                                goto not_affiliatepayreq_update;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::updateAction',));
-                        }
-                        not_affiliatepayreq_update:
-
-                        // affiliatepayreq_delete
-                        if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                                $allow = array_merge($allow, array('POST', 'DELETE'));
-                                goto not_affiliatepayreq_delete;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::deleteAction',));
-                        }
-                        not_affiliatepayreq_delete:
-
+                        return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::indexAction',  '_route' => 'affiliatepayreq',);
                     }
 
-                    if (0 === strpos($pathinfo, '/affiliatepayrel')) {
-                        // affiliatepayrel
-                        if (rtrim($pathinfo, '/') === '/affiliatepayrel') {
-                            if (substr($pathinfo, -1) !== '/') {
-                                return $this->redirect($pathinfo.'/', 'affiliatepayrel');
-                            }
-
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayRelController::indexAction',  '_route' => 'affiliatepayrel',);
-                        }
-
-                        // affiliatepayrel_show
-                        if (preg_match('#^/affiliatepayrel/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayrel_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayRelController::showAction',));
-                        }
-
-                        // affiliatepayrel_new
-                        if ($pathinfo === '/affiliatepayrel/new') {
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayRelController::newAction',  '_route' => 'affiliatepayrel_new',);
-                        }
-
-                        // affiliatepayrel_create
-                        if ($pathinfo === '/affiliatepayrel/create') {
-                            if ($this->context->getMethod() != 'POST') {
-                                $allow[] = 'POST';
-                                goto not_affiliatepayrel_create;
-                            }
-
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayRelController::createAction',  '_route' => 'affiliatepayrel_create',);
-                        }
-                        not_affiliatepayrel_create:
-
-                        // affiliatepayrel_edit
-                        if (preg_match('#^/affiliatepayrel/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayrel_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayRelController::editAction',));
-                        }
-
-                        // affiliatepayrel_update
-                        if (preg_match('#^/affiliatepayrel/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                                $allow = array_merge($allow, array('POST', 'PUT'));
-                                goto not_affiliatepayrel_update;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayrel_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayRelController::updateAction',));
-                        }
-                        not_affiliatepayrel_update:
-
-                        // affiliatepayrel_delete
-                        if (preg_match('#^/affiliatepayrel/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                                $allow = array_merge($allow, array('POST', 'DELETE'));
-                                goto not_affiliatepayrel_delete;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayrel_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayRelController::deleteAction',));
-                        }
-                        not_affiliatepayrel_delete:
-
+                    // affiliatepayreq_show
+                    if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::showAction',));
                     }
+
+                    // affiliatepayreq_new
+                    if ($pathinfo === '/affiliatepayreq/new') {
+                        return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::newAction',  '_route' => 'affiliatepayreq_new',);
+                    }
+
+                    // affiliatepayreq_create
+                    if ($pathinfo === '/affiliatepayreq/create') {
+                        if ($this->context->getMethod() != 'POST') {
+                            $allow[] = 'POST';
+                            goto not_affiliatepayreq_create;
+                        }
+
+                        return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::createAction',  '_route' => 'affiliatepayreq_create',);
+                    }
+                    not_affiliatepayreq_create:
+
+                    // affiliatepayreq_edit
+                    if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::editAction',));
+                    }
+
+                    // affiliatepayreq_update
+                    if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                            $allow = array_merge($allow, array('POST', 'PUT'));
+                            goto not_affiliatepayreq_update;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::updateAction',));
+                    }
+                    not_affiliatepayreq_update:
+
+                    // affiliatepayreq_delete
+                    if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                            $allow = array_merge($allow, array('POST', 'DELETE'));
+                            goto not_affiliatepayreq_delete;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::deleteAction',));
+                    }
+                    not_affiliatepayreq_delete:
 
                 }
 
             }
 
-            if (0 === strpos($pathinfo, '/admin')) {
-                // admin
-                if (rtrim($pathinfo, '/') === '/admin') {
+            if (0 === strpos($pathinfo, '/adminpayreq')) {
+                // adminpayreq
+                if (rtrim($pathinfo, '/') === '/adminpayreq') {
                     if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'admin');
+                        return $this->redirect($pathinfo.'/', 'adminpayreq');
                     }
 
-                    return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminController::indexAction',  '_route' => 'admin',);
+                    return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::indexAction',  '_route' => 'adminpayreq',);
                 }
 
-                // admin_show
-                if (preg_match('#^/admin/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminController::showAction',));
+                // adminpayreq_show
+                if (preg_match('#^/adminpayreq/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayreq_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::showAction',));
                 }
 
-                // admin_new
-                if ($pathinfo === '/admin/new') {
-                    return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminController::newAction',  '_route' => 'admin_new',);
+                // adminpayreq_new
+                if ($pathinfo === '/adminpayreq/new') {
+                    return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::newAction',  '_route' => 'adminpayreq_new',);
                 }
 
-                // admin_create
-                if ($pathinfo === '/admin/create') {
+                // adminpayreq_create
+                if ($pathinfo === '/adminpayreq/create') {
                     if ($this->context->getMethod() != 'POST') {
                         $allow[] = 'POST';
-                        goto not_admin_create;
+                        goto not_adminpayreq_create;
                     }
 
-                    return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminController::createAction',  '_route' => 'admin_create',);
+                    return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::createAction',  '_route' => 'adminpayreq_create',);
                 }
-                not_admin_create:
+                not_adminpayreq_create:
 
-                // admin_edit
-                if (preg_match('#^/admin/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminController::editAction',));
+                // adminpayreq_edit
+                if (preg_match('#^/adminpayreq/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayreq_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::editAction',));
                 }
 
-                // admin_update
-                if (preg_match('#^/admin/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                // adminpayreq_update
+                if (preg_match('#^/adminpayreq/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
                     if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
                         $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_admin_update;
+                        goto not_adminpayreq_update;
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminController::updateAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayreq_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::updateAction',));
                 }
-                not_admin_update:
+                not_adminpayreq_update:
 
-                // admin_delete
-                if (preg_match('#^/admin/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                // adminpayreq_delete
+                if (preg_match('#^/adminpayreq/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
                     if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
                         $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_admin_delete;
+                        goto not_adminpayreq_delete;
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminController::deleteAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayreq_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::deleteAction',));
                 }
-                not_admin_delete:
-
-                if (0 === strpos($pathinfo, '/adminpayre')) {
-                    if (0 === strpos($pathinfo, '/adminpayreq')) {
-                        // adminpayreq
-                        if (rtrim($pathinfo, '/') === '/adminpayreq') {
-                            if (substr($pathinfo, -1) !== '/') {
-                                return $this->redirect($pathinfo.'/', 'adminpayreq');
-                            }
-
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::indexAction',  '_route' => 'adminpayreq',);
-                        }
-
-                        // adminpayreq_show
-                        if (preg_match('#^/adminpayreq/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayreq_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::showAction',));
-                        }
-
-                        // adminpayreq_new
-                        if ($pathinfo === '/adminpayreq/new') {
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::newAction',  '_route' => 'adminpayreq_new',);
-                        }
-
-                        // adminpayreq_create
-                        if ($pathinfo === '/adminpayreq/create') {
-                            if ($this->context->getMethod() != 'POST') {
-                                $allow[] = 'POST';
-                                goto not_adminpayreq_create;
-                            }
-
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::createAction',  '_route' => 'adminpayreq_create',);
-                        }
-                        not_adminpayreq_create:
-
-                        // adminpayreq_edit
-                        if (preg_match('#^/adminpayreq/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayreq_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::editAction',));
-                        }
-
-                        // adminpayreq_update
-                        if (preg_match('#^/adminpayreq/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                                $allow = array_merge($allow, array('POST', 'PUT'));
-                                goto not_adminpayreq_update;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayreq_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::updateAction',));
-                        }
-                        not_adminpayreq_update:
-
-                        // adminpayreq_delete
-                        if (preg_match('#^/adminpayreq/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                                $allow = array_merge($allow, array('POST', 'DELETE'));
-                                goto not_adminpayreq_delete;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayreq_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayReqController::deleteAction',));
-                        }
-                        not_adminpayreq_delete:
-
-                    }
-
-                    if (0 === strpos($pathinfo, '/adminpayrel')) {
-                        // adminpayrel
-                        if (rtrim($pathinfo, '/') === '/adminpayrel') {
-                            if (substr($pathinfo, -1) !== '/') {
-                                return $this->redirect($pathinfo.'/', 'adminpayrel');
-                            }
-
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayRelController::indexAction',  '_route' => 'adminpayrel',);
-                        }
-
-                        // adminpayrel_show
-                        if (preg_match('#^/adminpayrel/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayrel_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayRelController::showAction',));
-                        }
-
-                        // adminpayrel_new
-                        if ($pathinfo === '/adminpayrel/new') {
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayRelController::newAction',  '_route' => 'adminpayrel_new',);
-                        }
-
-                        // adminpayrel_create
-                        if ($pathinfo === '/adminpayrel/create') {
-                            if ($this->context->getMethod() != 'POST') {
-                                $allow[] = 'POST';
-                                goto not_adminpayrel_create;
-                            }
-
-                            return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayRelController::createAction',  '_route' => 'adminpayrel_create',);
-                        }
-                        not_adminpayrel_create:
-
-                        // adminpayrel_edit
-                        if (preg_match('#^/adminpayrel/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayrel_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayRelController::editAction',));
-                        }
-
-                        // adminpayrel_update
-                        if (preg_match('#^/adminpayrel/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                                $allow = array_merge($allow, array('POST', 'PUT'));
-                                goto not_adminpayrel_update;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayrel_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayRelController::updateAction',));
-                        }
-                        not_adminpayrel_update:
-
-                        // adminpayrel_delete
-                        if (preg_match('#^/adminpayrel/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                            if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                                $allow = array_merge($allow, array('POST', 'DELETE'));
-                                goto not_adminpayrel_delete;
-                            }
-
-                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminpayrel_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AdminPayRelController::deleteAction',));
-                        }
-                        not_adminpayrel_delete:
-
-                    }
-
-                }
+                not_adminpayreq_delete:
 
             }
+
+        }
+
+        if (0 === strpos($pathinfo, '/membersinfo')) {
+            // membersinfo
+            if (rtrim($pathinfo, '/') === '/membersinfo') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'membersinfo');
+                }
+
+                return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\MembersinfoController::indexAction',  '_route' => 'membersinfo',);
+            }
+
+            // membersinfo_show
+            if (preg_match('#^/membersinfo/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'membersinfo_show')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\MembersinfoController::showAction',));
+            }
+
+            // membersinfo_new
+            if ($pathinfo === '/membersinfo/new') {
+                return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\MembersinfoController::newAction',  '_route' => 'membersinfo_new',);
+            }
+
+            // membersinfo_create
+            if ($pathinfo === '/membersinfo/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_membersinfo_create;
+                }
+
+                return array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\MembersinfoController::createAction',  '_route' => 'membersinfo_create',);
+            }
+            not_membersinfo_create:
+
+            // membersinfo_edit
+            if (preg_match('#^/membersinfo/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'membersinfo_edit')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\MembersinfoController::editAction',));
+            }
+
+            // membersinfo_update
+            if (preg_match('#^/membersinfo/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_membersinfo_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'membersinfo_update')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\MembersinfoController::updateAction',));
+            }
+            not_membersinfo_update:
+
+            // membersinfo_delete
+            if (preg_match('#^/membersinfo/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_membersinfo_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'membersinfo_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\MembersinfoController::deleteAction',));
+            }
+            not_membersinfo_delete:
 
         }
 

@@ -50,10 +50,6 @@ class Membersinfo
      */
     private $mobile;
 
-    /**
-     * @var string
-     */
-    private $addedBy;
 
     /**
      * @var string
@@ -74,7 +70,11 @@ class Membersinfo
      * @var \DateTime
      */
     private $updatedDate;
-
+  
+    /**
+     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
+     */
+    private $Userinfo;
 
     /**
      * Get id
@@ -339,11 +339,6 @@ class Membersinfo
     {
         return $this->updatedDate;
     }
-
-    /**
-     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
-     */
-    private $Userinfo;
 
 
     /**

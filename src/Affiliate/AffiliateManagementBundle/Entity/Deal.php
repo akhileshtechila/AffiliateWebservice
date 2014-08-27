@@ -41,6 +41,10 @@ class Deal
      */
     private $updatedDate;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $AffiliateDeal;
 
     /**
      * Get id
@@ -185,10 +189,7 @@ class Deal
 
         $this->updatedDate = new \DateTime();
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $AffiliateDeal;
+
 
     /**
      * Constructor

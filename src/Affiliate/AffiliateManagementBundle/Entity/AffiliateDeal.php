@@ -20,6 +20,17 @@ class AffiliateDeal
      * @var string
      */
     private $description;
+    
+    /**
+     * @var \Affiliate\AffiliateManagementBundle\Entity\Deal
+     */
+    private $Deal;
+
+    /**
+     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
+     */
+    private $Userinfo;
+    
 
     /**
      * @var \DateTime
@@ -110,16 +121,6 @@ class AffiliateDeal
     {
         return $this->updatedDate;
     }
-    /**
-     * @var \Affiliate\AffiliateManagementBundle\Entity\Deal
-     */
-    private $Deal;
-
-    /**
-     * @var \Affiliate\AffiliateManagementBundle\Entity\Userinfo
-     */
-    private $Userinfo;
-
 
     /**
      * Set Deal

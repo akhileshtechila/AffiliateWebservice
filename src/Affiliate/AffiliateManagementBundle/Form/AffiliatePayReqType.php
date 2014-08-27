@@ -5,6 +5,7 @@ namespace Affiliate\AffiliateManagementBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class AffiliatePayReqType extends AbstractType {
 
@@ -14,21 +15,37 @@ class AffiliatePayReqType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-                ->add('Admin', 'entity', array(
-                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Admin',
+                ->add('UserinfoRequestedBy', 'entity', array(
+                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Userinfo',
                     'property' => 'email',
-                    'required' => true,
+                    'required' => false,
                     'empty_value' => 'Choose an option',
+                    'query_builder' => function(EntityRepository $er) {
+                return $er
+                        ->createQueryBuilder('U')
+                        ->select('U')
+                        ->where("U.userType = 'affiliate'")                        
+                      ;
+                  },
                 ))
-                ->add('Affiliateinfo', 'entity', array(
-                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo',
+                
+                 ->add('UserinfoReleasedBy', 'entity', array(
+                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Userinfo',
                     'property' => 'email',
-                    'required' => true,
+                    'required' => false,
                     'empty_value' => 'Choose an option',
+                    'query_builder' => function(EntityRepository $er) {
+                return $er
+                        ->createQueryBuilder('U')
+                        ->select('U')
+                        ->where("U.userType = 'admin'")                        
+                      ;
+                  },
                 ))
+               
                 ->add('requestedAmt', 'text', array('required' => true))
                 ->add('requestedDate', 'date', array('widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'read_only' => true))
-                ->add('description', 'textarea', array('required' => true))
+                ->add('reqDescription', 'textarea', array('required' => true))
 //                ->add('reqStatus','text',array('required'=>true))
                 ->add('reqStatus', 'choice', array(
                     'choices' => array(

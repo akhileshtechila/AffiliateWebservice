@@ -64,10 +64,10 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'id', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'fname', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'lname', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'username', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'password', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'email', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'state', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'country', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'zipcode', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'mobile', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'usertype', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'createdat', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'updatedat', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliatePayReq', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliatePayRel', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AdminPayReq', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AdminPayRel');
+            return array('__isInitialized__', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'id', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'fName', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'lName', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'userName', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'password', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'email', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'city', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'state', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'country', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'zipCode', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'mobile', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'userType', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'deviceToken', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'addedBy', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'createdDate', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'updatedDate', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'Membersinfo', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliatePayReq', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliatePayRel', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliateDeal', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AdminAffiliatePayReq', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AdminAffiliatePayRel');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'id', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'fname', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'lname', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'username', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'password', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'email', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'state', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'country', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'zipcode', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'mobile', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'usertype', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'createdat', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'updatedat', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliatePayReq', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliatePayRel', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AdminPayReq', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AdminPayRel');
+        return array('__isInitialized__', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'id', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'fName', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'lName', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'userName', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'password', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'email', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'city', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'state', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'country', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'zipCode', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'mobile', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'userType', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'deviceToken', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'addedBy', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'createdDate', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'updatedDate', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'Membersinfo', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliatePayReq', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliatePayRel', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AffiliateDeal', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AdminAffiliatePayReq', '' . "\0" . 'Affiliate\\AffiliateManagementBundle\\Entity\\Userinfo' . "\0" . 'AdminAffiliatePayRel');
     }
 
     /**
@@ -191,67 +191,67 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
     /**
      * {@inheritDoc}
      */
-    public function setFname($fname)
+    public function setFName($fName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFname', array($fname));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFName', array($fName));
 
-        return parent::setFname($fname);
+        return parent::setFName($fName);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getFname()
+    public function getFName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFname', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFName', array());
 
-        return parent::getFname();
+        return parent::getFName();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setLname($lname)
+    public function setLName($lName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLname', array($lname));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLName', array($lName));
 
-        return parent::setLname($lname);
+        return parent::setLName($lName);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getLname()
+    public function getLName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLname', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLName', array());
 
-        return parent::getLname();
+        return parent::getLName();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setUsername($username)
+    public function setUserName($userName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsername', array($username));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserName', array($userName));
 
-        return parent::setUsername($username);
+        return parent::setUserName($userName);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getUsername()
+    public function getUserName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsername', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserName', array());
 
-        return parent::getUsername();
+        return parent::getUserName();
     }
 
     /**
@@ -301,6 +301,28 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
     /**
      * {@inheritDoc}
      */
+    public function setCity($city)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', array($city));
+
+        return parent::setCity($city);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCity()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', array());
+
+        return parent::getCity();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setState($state)
     {
 
@@ -345,23 +367,23 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
     /**
      * {@inheritDoc}
      */
-    public function setZipcode($zipcode)
+    public function setZipCode($zipCode)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZipcode', array($zipcode));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZipCode', array($zipCode));
 
-        return parent::setZipcode($zipcode);
+        return parent::setZipCode($zipCode);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getZipcode()
+    public function getZipCode()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZipcode', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZipCode', array());
 
-        return parent::getZipcode();
+        return parent::getZipCode();
     }
 
     /**
@@ -389,67 +411,144 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
     /**
      * {@inheritDoc}
      */
-    public function setUsertype($usertype)
+    public function setUserType($userType)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsertype', array($usertype));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserType', array($userType));
 
-        return parent::setUsertype($usertype);
+        return parent::setUserType($userType);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getUsertype()
+    public function getUserType()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsertype', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserType', array());
 
-        return parent::getUsertype();
+        return parent::getUserType();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setCreatedat($createdat)
+    public function setDeviceToken($deviceToken)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedat', array($createdat));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDeviceToken', array($deviceToken));
 
-        return parent::setCreatedat($createdat);
+        return parent::setDeviceToken($deviceToken);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getCreatedat()
+    public function getDeviceToken()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedat', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDeviceToken', array());
 
-        return parent::getCreatedat();
+        return parent::getDeviceToken();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setUpdatedat($updatedat)
+    public function setAddedBy($addedBy)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedat', array($updatedat));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddedBy', array($addedBy));
 
-        return parent::setUpdatedat($updatedat);
+        return parent::setAddedBy($addedBy);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getUpdatedat()
+    public function getAddedBy()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedat', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddedBy', array());
 
-        return parent::getUpdatedat();
+        return parent::getAddedBy();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCreatedDate($createdDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedDate', array($createdDate));
+
+        return parent::setCreatedDate($createdDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCreatedDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedDate', array());
+
+        return parent::getCreatedDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUpdatedDate($updatedDate)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedDate', array($updatedDate));
+
+        return parent::setUpdatedDate($updatedDate);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUpdatedDate()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedDate', array());
+
+        return parent::getUpdatedDate();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addMembersinfo(\Affiliate\AffiliateManagementBundle\Entity\Membersinfo $membersinfo)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMembersinfo', array($membersinfo));
+
+        return parent::addMembersinfo($membersinfo);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeMembersinfo(\Affiliate\AffiliateManagementBundle\Entity\Membersinfo $membersinfo)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeMembersinfo', array($membersinfo));
+
+        return parent::removeMembersinfo($membersinfo);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMembersinfo()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMembersinfo', array());
+
+        return parent::getMembersinfo();
     }
 
     /**
@@ -488,7 +587,7 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
     /**
      * {@inheritDoc}
      */
-    public function addAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel)
+    public function addAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayRel)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAffiliatePayRel', array($affiliatePayRel));
@@ -499,7 +598,7 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
     /**
      * {@inheritDoc}
      */
-    public function removeAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayRel $affiliatePayRel)
+    public function removeAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AffiliatePayReq $affiliatePayRel)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAffiliatePayRel', array($affiliatePayRel));
@@ -516,72 +615,6 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAffiliatePayRel', array());
 
         return parent::getAffiliatePayRel();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addAdminPayReq(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminPayReq)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAdminPayReq', array($adminPayReq));
-
-        return parent::addAdminPayReq($adminPayReq);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeAdminPayReq(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminPayReq)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAdminPayReq', array($adminPayReq));
-
-        return parent::removeAdminPayReq($adminPayReq);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAdminPayReq()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdminPayReq', array());
-
-        return parent::getAdminPayReq();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addAdminPayRel(\Affiliate\AffiliateManagementBundle\Entity\AdminPayRel $adminPayRel)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAdminPayRel', array($adminPayRel));
-
-        return parent::addAdminPayRel($adminPayRel);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeAdminPayRel(\Affiliate\AffiliateManagementBundle\Entity\AdminPayRel $adminPayRel)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAdminPayRel', array($adminPayRel));
-
-        return parent::removeAdminPayRel($adminPayRel);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getAdminPayRel()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdminPayRel', array());
-
-        return parent::getAdminPayRel();
     }
 
     /**
@@ -604,6 +637,105 @@ class Userinfo extends \Affiliate\AffiliateManagementBundle\Entity\Userinfo impl
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedOnValue', array());
 
         return parent::setUpdatedOnValue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addAdminAffiliatePayReq(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayReq)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAdminAffiliatePayReq', array($adminAffiliatePayReq));
+
+        return parent::addAdminAffiliatePayReq($adminAffiliatePayReq);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeAdminAffiliatePayReq(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayReq)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAdminAffiliatePayReq', array($adminAffiliatePayReq));
+
+        return parent::removeAdminAffiliatePayReq($adminAffiliatePayReq);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAdminAffiliatePayReq()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdminAffiliatePayReq', array());
+
+        return parent::getAdminAffiliatePayReq();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addAdminAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayRel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAdminAffiliatePayRel', array($adminAffiliatePayRel));
+
+        return parent::addAdminAffiliatePayRel($adminAffiliatePayRel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeAdminAffiliatePayRel(\Affiliate\AffiliateManagementBundle\Entity\AdminPayReq $adminAffiliatePayRel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAdminAffiliatePayRel', array($adminAffiliatePayRel));
+
+        return parent::removeAdminAffiliatePayRel($adminAffiliatePayRel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAdminAffiliatePayRel()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAdminAffiliatePayRel', array());
+
+        return parent::getAdminAffiliatePayRel();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addAffiliateDeal(\Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAffiliateDeal', array($affiliateDeal));
+
+        return parent::addAffiliateDeal($affiliateDeal);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeAffiliateDeal(\Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal $affiliateDeal)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAffiliateDeal', array($affiliateDeal));
+
+        return parent::removeAffiliateDeal($affiliateDeal);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAffiliateDeal()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAffiliateDeal', array());
+
+        return parent::getAffiliateDeal();
     }
 
 }

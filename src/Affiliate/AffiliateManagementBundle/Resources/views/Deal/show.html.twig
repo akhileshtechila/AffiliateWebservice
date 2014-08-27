@@ -36,6 +36,8 @@
             Edit
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li> <a href="{{ path('deal_delete', { 'id': entity.id }) }}">
+            Delete
+        </a></li>
 </ul>
 {% endblock %}
