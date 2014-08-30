@@ -3,6 +3,8 @@
 {% block body -%}
     <h1>AffiliateDeal</h1>
 
+   
+    
     <table class="record_properties">
         <tbody>
             <tr>
@@ -13,13 +15,13 @@
                 <th>Description</th>
                 <td>{{ entity.description }}</td>
             </tr>
-            <tr>
+          <tr>
                 <th>Createdat</th>
-                <td>{{ entity.createdat|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entity.createdDate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
                 <th>Updatedat</th>
-                <td>{{ entity.updatedat|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entity.updatedDate|date('Y-m-d H:i:s') }}</td>
             </tr>
         </tbody>
     </table>
@@ -35,6 +37,6 @@
             Edit
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    
 </ul>
 {% endblock %}

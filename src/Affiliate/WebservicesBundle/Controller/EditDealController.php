@@ -12,21 +12,21 @@ use Affiliate\AffiliateManagementBundle\Entity\Deal;
 class EditDealController extends Controller {
 
     public function EditDealAction(Request $request) {
-        
+
         $em = $this->getDoctrine()->getManager();
-        
+
         /* Check The request is Post */
-        if ($request->getMethod() == "POST") {    
+        if ($request->getMethod() == "POST") {
             $dealId = $request->get('dealId');
             $dName = $request->get('dName');
             $description = $request->get('description');
-            $dealDuration = $request->get('dealDuration');             
+            $dealDuration = $request->get('dealDuration');
         } else {
             return new JsonResponse($this->noPostData());
-        } 
-           /* $dName = "Main Deal";
-            $description = "Main Deal sddasdasdasd";
-            $dealDuration = "30 min";*/
+        }
+        /* $dName = "Main Deal";
+          $description = "Main Deal sddasdasdasd";
+          $dealDuration = "30 min"; */
         if ($dName == "") {
             $errorMsg = "Deal Name is Empty";
             return new JsonResponse($this->blankField($errorMsg));
@@ -37,12 +37,12 @@ class EditDealController extends Controller {
             $errorMsg = "Deal Duration Empty";
             return new JsonResponse($this->blankField($errorMsg));
         } else {
-            
-            $Deal = $em->getRepository("AffiliateManagementBundle:Deal")->find($dealId);
-            
-            if(!$Deal){
+
+            $Deal = $em->getRepository("AffiliateAffiliateManagementBundle:Deal")->find($dealId);
+
+            if (!$Deal) {
                 $errorMsg = "Error! No Entity Found";
-                return new JsonResponse($this->blankField($errorMsg) );
+                return new JsonResponse($this->blankField($errorMsg));
             }
             $Deal->setDName($dName);
             $Deal->setDescription($description);
@@ -52,19 +52,46 @@ class EditDealController extends Controller {
             $em->flush();
 
             if ($Deal->getId() != "") {
-                $dataQuery ="Deal Edited";
+                $dataQuery = "Deal Edited";
                 return new JsonResponse($this->dealSuccess($dataQuery));
             } else {
                 return new JsonResponse($this->dealUnsuccessful());
             }
-             return new JsonResponse($this->dealUnsuccessful());
-          }
-      
-        
+            return new JsonResponse($this->dealUnsuccessful());
+        }
+
+
         return $this->render('AffiliateWebservicesBundle:EditDeal:EditDeal.html.twig');
     }
-    
-     private function dealSuccess($dataQuery) {
+
+    public function DeleteDealAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+        /* Check The request is Post */
+        if ($request->getMethod() == "POST") {
+            $dealId = $request->get('dealId');
+        } else {
+            return new JsonResponse($this->noPostData());
+        }
+        //$dealId = "2";
+        if ($dealId != "") {
+            $Deal = $em->getRepository("AffiliateAffiliateManagementBundle:Deal")->find($dealId);
+            if (!$Deal) {
+                $errorMsg = "Error! No Deal Found";
+                return new JsonResponse($this->blankField($errorMsg));
+            }
+            $em->remove($Deal);
+            $em->flush();
+            $dataQuery = "Deal Deleted";
+            return new JsonResponse($this->dealDelete($dataQuery));
+        } else {
+            $errorMsg = "Error! No Deal Id Submitted";
+            return new JsonResponse($this->blankField($errorMsg));
+        }
+        return $this->render('AffiliateWebservicesBundle:EditDeal:EditDeal.html.twig');
+    }
+
+    private function dealSuccess($dataQuery) {
         $data = array();
 
         $data['errorCode'] = "0";
@@ -77,7 +104,7 @@ class EditDealController extends Controller {
         return $mainData;
     }
 
-        public function dealUnsuccessful() {
+    public function dealUnsuccessful() {
         $data = array();
         $data['errorCode'] = "1";
         $data['errorMessage'] = "Deal information is missing";
@@ -87,7 +114,7 @@ class EditDealController extends Controller {
         $mainData['data'] = $data;
         return $mainData;
     }
-    
+
     private function blankField($errorMsg) {
         $data = array();
         $data['errorCode'] = "2";
@@ -107,6 +134,19 @@ class EditDealController extends Controller {
 
         $mainData = array();
         $mainData['data'] = $data;
+        return $mainData;
+    }
+
+    private function dealDelete($dataQuery) {
+        $data = array();
+
+        $data['errorCode'] = "4";
+        $data['errorMessage'] = "Deal Deleted successfully";
+        $data['result'] = $dataQuery;
+
+        $mainData = array();
+        $mainData['data'] = $data;
+
         return $mainData;
     }
 

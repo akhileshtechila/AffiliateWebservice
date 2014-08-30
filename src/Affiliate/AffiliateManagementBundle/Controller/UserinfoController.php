@@ -158,11 +158,9 @@ class UserinfoController extends Controller {
             throw $this->createNotFoundException('Unable to find Userinfo entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('AffiliateAffiliateManagementBundle:Userinfo:show.html.twig', array(
                     'entity' => $entity,
-                    'delete_form' => $deleteForm->createView(),
+                    
         ));
     }
 
@@ -180,12 +178,12 @@ class UserinfoController extends Controller {
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+       
 
         return $this->render('AffiliateAffiliateManagementBundle:Userinfo:edit.html.twig', array(
                     'entity' => $entity,
                     'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
+                    
         ));
     }
 
@@ -220,7 +218,7 @@ class UserinfoController extends Controller {
             throw $this->createNotFoundException('Unable to find Userinfo entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+       
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -233,7 +231,7 @@ class UserinfoController extends Controller {
         return $this->render('AffiliateAffiliateManagementBundle:Userinfo:edit.html.twig', array(
                     'entity' => $entity,
                     'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
+                  
         ));
     }
 
@@ -242,10 +240,7 @@ class UserinfoController extends Controller {
      *
      */
     public function deleteAction(Request $request, $id) {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
+         if($id != ""){
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('AffiliateAffiliateManagementBundle:Userinfo')->find($id);
 
@@ -255,8 +250,7 @@ class UserinfoController extends Controller {
 
             $em->remove($entity);
             $em->flush();
-        }
-
+         }
         return $this->redirect($this->generateUrl('userinfo'));
     }
 
@@ -267,13 +261,13 @@ class UserinfoController extends Controller {
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id) {
+  /*  private function createDeleteForm($id) {
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl('userinfo_delete', array('id' => $id)))
                         ->setMethod('DELETE')
                         ->add('submit', 'submit', array('label' => 'Delete'))
                         ->getForm()
         ;
-    }
+    }*/
 
 }

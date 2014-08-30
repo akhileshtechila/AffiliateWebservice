@@ -150,14 +150,58 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\SignUpUserController::SignUpUserAction',  '_route' => 'affiliate_webservices_sign_up_user',);
         }
 
-        // affiliate_webservices_members_listing
-        if ($pathinfo === '/MembersListing') {
-            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\MembersListingController::MembersListingAction',  '_route' => 'affiliate_webservices_members_listing',);
+        // affiliate_webservices_edit_user_info
+        if ($pathinfo === '/EditUserInfo') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditUserInfoController::EditUserInfoAction',  '_route' => 'affiliate_webservices_edit_user_info',);
         }
 
-        // affiliate_webservices_deal
-        if ($pathinfo === '/Deal') {
-            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\DealController::DealAction',  '_route' => 'affiliate_webservices_deal',);
+        if (0 === strpos($pathinfo, '/Members')) {
+            // affiliate_webservices_members_listing
+            if ($pathinfo === '/MembersListing') {
+                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\MembersListingController::MembersListingAction',  '_route' => 'affiliate_webservices_members_listing',);
+            }
+
+            // affiliate_webservices_members_info_add
+            if ($pathinfo === '/MembersInfoAdd') {
+                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\MembersInfoController::MembersInfoAddAction',  '_route' => 'affiliate_webservices_members_info_add',);
+            }
+
+        }
+
+        // affiliate_webservices_edit_members_info
+        if ($pathinfo === '/EditMembersInfo') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditMembersInfoController::EditMembersInfoAction',  '_route' => 'affiliate_webservices_edit_members_info',);
+        }
+
+        if (0 === strpos($pathinfo, '/De')) {
+            // affiliate_webservices_delete_members_info
+            if ($pathinfo === '/DeleteMember') {
+                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditMembersInfoController::DeleteMemberAction',  '_route' => 'affiliate_webservices_delete_members_info',);
+            }
+
+            if (0 === strpos($pathinfo, '/Deal')) {
+                // affiliate_webservices_deal
+                if ($pathinfo === '/Deal') {
+                    return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\DealController::DealAction',  '_route' => 'affiliate_webservices_deal',);
+                }
+
+                // affiliate_webservices_deal_listing
+                if ($pathinfo === '/DealListing') {
+                    return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\DealListingController::DealListingAction',  '_route' => 'affiliate_webservices_deal_listing',);
+                }
+
+            }
+
+        }
+
+        // affiliate_webservices_edit_deal
+        if ($pathinfo === '/EditDeal') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditDealController::EditDealAction',  '_route' => 'affiliate_webservices_edit_deal',);
+        }
+
+        // affiliate_webservices_delete_deal
+        if ($pathinfo === '/DeleteDeal') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditDealController::DeleteDealAction',  '_route' => 'affiliate_webservices_delete_deal',);
         }
 
         // affiliate_webservices_affiliate_deal
@@ -165,22 +209,24 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\AffiliateDealController::AffiliateDealAction',  '_route' => 'affiliate_webservices_affiliate_deal',);
         }
 
-        // affiliate_webservices_deal_listing
-        if ($pathinfo === '/DealListing') {
-            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\DealListingController::DealListingAction',  '_route' => 'affiliate_webservices_deal_listing',);
+        // affiliate_webservices_edit_affiliate_deal
+        if ($pathinfo === '/EditAffiliateDeal') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAffiliateDealController::EditAffiliateDealAction',  '_route' => 'affiliate_webservices_edit_affiliate_deal',);
         }
 
-        if (0 === strpos($pathinfo, '/A')) {
-            // affiliate_webservices_admin_payment_request
-            if ($pathinfo === '/AdminPaymentRequest') {
-                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\AdminPaymentRequestController::AdminPaymentRequestAction',  '_route' => 'affiliate_webservices_admin_payment_request',);
-            }
+        // affiliate_webservices_delete_affiliate_deal
+        if ($pathinfo === '/DeleteAffiliateDeal') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAffiliateDealController::DeleteAffiliateDealAction',  '_route' => 'affiliate_webservices_delete_affiliate_deal',);
+        }
 
-            // affiliate_webservices_affiliate_payment_request
-            if ($pathinfo === '/AffiliatePaymentRequest') {
-                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\AffiliatePaymentRequestController::AffiliatePaymentRequestAction',  '_route' => 'affiliate_webservices_affiliate_payment_request',);
-            }
+        // affiliate_webservices_listing_affiliate_deal
+        if ($pathinfo === '/ListingAffiliateDeal') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\ListingAffiliateDealController::ListingAffiliateDealAction',  '_route' => 'affiliate_webservices_listing_affiliate_deal',);
+        }
 
+        // affiliate_webservices_admin_payment_request
+        if ($pathinfo === '/AdminPaymentRequest') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\AdminPaymentRequestController::AdminPaymentRequestAction',  '_route' => 'affiliate_webservices_admin_payment_request',);
         }
 
         // affiliate_webservices_edit_admin_payment_request
@@ -188,27 +234,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAdminPaymentRequestController::EditAdminPaymentRequestAction',  '_route' => 'affiliate_webservices_edit_admin_payment_request',);
         }
 
+        // affiliate_webservices_delete_admin_payment_request
+        if ($pathinfo === '/DeleteAdminPaymentRequest') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAdminPaymentRequestController::DeleteAdminPaymentRequestAction',  '_route' => 'affiliate_webservices_delete_admin_payment_request',);
+        }
+
         // affiliate_webservices_listing_admin_pay_req
         if ($pathinfo === '/ListingAdminPayReq') {
             return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\ListingAdminPayReqController::ListingAdminPayReqAction',  '_route' => 'affiliate_webservices_listing_admin_pay_req',);
         }
 
-        if (0 === strpos($pathinfo, '/Edit')) {
-            // affiliate_webservices_edit_deal
-            if ($pathinfo === '/EditDeal') {
-                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditDealController::EditDealAction',  '_route' => 'affiliate_webservices_edit_deal',);
-            }
+        // affiliate_webservices_affiliate_payment_request
+        if ($pathinfo === '/AffiliatePaymentRequest') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\AffiliatePaymentRequestController::AffiliatePaymentRequestAction',  '_route' => 'affiliate_webservices_affiliate_payment_request',);
+        }
 
-            // affiliate_webservices_edit_user_info
-            if ($pathinfo === '/EditUserInfo') {
-                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditUserInfoController::EditUserInfoAction',  '_route' => 'affiliate_webservices_edit_user_info',);
-            }
+        // affiliate_webservices_edit_affiliate_payment_request
+        if ($pathinfo === '/EditAffiliatePaymentRequest') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAffiliatePaymentRequestController::EditAffiliatePaymentRequestAction',  '_route' => 'affiliate_webservices_edit_affiliate_payment_request',);
+        }
 
-            // affiliate_webservices_edit_affiliate_deal
-            if ($pathinfo === '/EditAffiliateDeal') {
-                return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAffiliateDealController::EditAffiliateDealAction',  '_route' => 'affiliate_webservices_edit_affiliate_deal',);
-            }
+        // affiliate_webservices_delete_affiliate_payment_request
+        if ($pathinfo === '/DeleteAffiliatePaymentRequest') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\EditAffiliatePaymentRequestController::DeleteAffiliatePaymentRequestAction',  '_route' => 'affiliate_webservices_delete_affiliate_payment_request',);
+        }
 
+        // affiliate_webservices_listing_affiliate_payment_request
+        if ($pathinfo === '/ListingAffiliatePaymentRequest') {
+            return array (  '_controller' => 'Affiliate\\WebservicesBundle\\Controller\\ListingAffiliatePaymentRequestController::ListingAffiliatePaymentRequestAction',  '_route' => 'affiliate_webservices_listing_affiliate_payment_request',);
         }
 
         // affiliate_affiliate_management_homepage
@@ -265,14 +318,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // userinfo_delete
             if (preg_match('#^/userinfo/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_userinfo_delete;
-                }
-
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'userinfo_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\UserinfoController::deleteAction',));
             }
-            not_userinfo_delete:
 
         }
 
@@ -441,14 +488,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                     // affiliatepayreq_delete
                     if (preg_match('#^/affiliatepayreq/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                            $allow = array_merge($allow, array('POST', 'DELETE'));
-                            goto not_affiliatepayreq_delete;
-                        }
-
                         return $this->mergeDefaults(array_replace($matches, array('_route' => 'affiliatepayreq_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\AffiliatePayReqController::deleteAction',));
                     }
-                    not_affiliatepayreq_delete:
 
                 }
 
@@ -565,14 +606,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // membersinfo_delete
             if (preg_match('#^/membersinfo/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_membersinfo_delete;
-                }
-
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'membersinfo_delete')), array (  '_controller' => 'Affiliate\\AffiliateManagementBundle\\Controller\\MembersinfoController::deleteAction',));
             }
-            not_membersinfo_delete:
 
         }
 

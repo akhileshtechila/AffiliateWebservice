@@ -100,12 +100,9 @@ class AffiliatePayReqController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find AffiliatePayReq entity.');
         }
-
-        $deleteForm = $this->createDeleteForm($id);
-
+      
         return $this->render('AffiliateAffiliateManagementBundle:AffiliatePayReq:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'entity'      => $entity,          
         ));
     }
 
@@ -123,13 +120,11 @@ class AffiliatePayReqController extends Controller
             throw $this->createNotFoundException('Unable to find AffiliatePayReq entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createEditForm($entity);      
 
         return $this->render('AffiliateAffiliateManagementBundle:AffiliatePayReq:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'edit_form'   => $editForm->createView(),           
         ));
     }
 
@@ -165,7 +160,7 @@ class AffiliatePayReqController extends Controller
             throw $this->createNotFoundException('Unable to find AffiliatePayReq entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+       
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -178,7 +173,7 @@ class AffiliatePayReqController extends Controller
         return $this->render('AffiliateAffiliateManagementBundle:AffiliatePayReq:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            
         ));
     }
     /**
@@ -187,10 +182,9 @@ class AffiliatePayReqController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+        
 
-        if ($form->isValid()) {
+        if ($id != "") {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('AffiliateAffiliateManagementBundle:AffiliatePayReq')->find($id);
 
@@ -212,7 +206,7 @@ class AffiliatePayReqController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+    /*private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('affiliatepayreq_delete', array('id' => $id)))
@@ -220,5 +214,5 @@ class AffiliatePayReqController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
-    }
+    }*/
 }

@@ -349,7 +349,7 @@
                             <ul class="treeview-menu" {% if app.request.attributes.get( '_route' )starts with 'affiliate' %} style='display:block'{% endif %} >
                                 
                                 <li {% if app.request.attributes.get( '_route' ) == 'affiliatepayreq' %} class='active'{% endif %}><a href="{{path('affiliatepayreq')}}" ><i class="fa fa-angle-double-right"></i> Affiliate Pay Request</a></li>
-                                
+                                <li {% if app.request.attributes.get( '_route' ) == 'affiliatedeal' %} class='active'{% endif %}><a href="{{path('affiliatedeal')}}" ><i class="fa fa-angle-double-right"></i> Affiliate Deal</a></li>
                             </ul>
                         </li>
                         

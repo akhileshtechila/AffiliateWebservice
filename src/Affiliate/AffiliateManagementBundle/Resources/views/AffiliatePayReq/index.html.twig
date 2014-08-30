@@ -2,6 +2,13 @@
 {% block title %}Admin Payment Requested{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
+    <style>
+        .modal-content {width: 84% !important;}
+        .modal-header {padding: 6px;}
+        .modal-body {padding: 2px;}
+        .modal-footer {padding: 4px 6px 7px;margin-top: -6px;}
+       .dropdown-menu { min-width : 109px !important; }
+    </style>
 {% endblock %}
 {% block javascripts %}
     {# parent() #}
@@ -33,6 +40,13 @@
         });
     </script>
 
+  <script>
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+            
+           // $('.debug-url').html('Delete URL: <strong>' + $(this).find('.danger').attr('href') + '</strong>');
+        })
+    </script>
 
 {% endblock %}
 
@@ -64,18 +78,29 @@
                             <tr>
                                 <td><a href="{{ path('affiliatepayreq_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                                 <td>{{ entity.requestedAmt }}</td>
-                                <td>{% if entity.requestedDate %}{{ entity.requestedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                                <td>{{ entity.description }}</td>
+                                <td>{% if entity.requestedDate %}{{ entity.requestedDate|date('d-m-Y') }}{% endif %}</td>
+                                <td>{{ entity.reqDescription }}</td>
                                 <td>{{ entity.reqStatus }}</td>
                                 <td>
-                                    <ul>
-                                        <li>
-                                            <a href="{{ path('affiliatepayreq_show', { 'id': entity.id }) }}">show</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ path('affiliatepayreq_edit', { 'id': entity.id }) }}">edit</a>
-                                        </li>
-                                    </ul>
+                                    
+                                     <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">Action</button>
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            <span class="sr-only"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="{{ path('affiliatepayreq_edit', { 'id': entity.id }) }}">Edit Affiliate</a></li>
+                                                                                       
+                                            <li class="divider"></li>                                                
+                                            <li> 
+                                               <a data-href="{{ path('affiliatepayreq_delete', { 'id': entity.id }) }}" data-toggle="modal" data-target="#confirm-delete" href="#">
+                                                   Delete Record
+                                               </a>
+                                            </li>
+                                        </ul>
+                                    </div>                                    
+                                    
                                 </td>
                             </tr>
                         {% endfor %}
@@ -101,4 +126,28 @@
             </a>
         </li>
     </ul>
+            
+               <!-- Delete toggle Pop Up -->   
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>You are about to delete one User, this procedure is irreversible.</p>
+                    <p>Do you want to proceed?</p>                   
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a href="#" class="btn btn-danger danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>      
+    <!-- Delete toggle Pop Up End -->    
 {% endblock %}

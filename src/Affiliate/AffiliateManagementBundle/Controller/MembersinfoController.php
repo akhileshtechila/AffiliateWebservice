@@ -101,11 +101,10 @@ class MembersinfoController extends Controller
             throw $this->createNotFoundException('Unable to find Membersinfo entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
+     
         return $this->render('AffiliateAffiliateManagementBundle:Membersinfo:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            
         ));
     }
 
@@ -124,12 +123,11 @@ class MembersinfoController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
-
+        
         return $this->render('AffiliateAffiliateManagementBundle:Membersinfo:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+           
         ));
     }
 
@@ -165,7 +163,7 @@ class MembersinfoController extends Controller
             throw $this->createNotFoundException('Unable to find Membersinfo entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -178,7 +176,7 @@ class MembersinfoController extends Controller
         return $this->render('AffiliateAffiliateManagementBundle:Membersinfo:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            
         ));
     }
     /**
@@ -187,17 +185,13 @@ class MembersinfoController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
+        if($id != ""){
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('AffiliateAffiliateManagementBundle:Membersinfo')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Membersinfo entity.');
             }
-
             $em->remove($entity);
             $em->flush();
         }
@@ -212,7 +206,7 @@ class MembersinfoController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+  /*  private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('membersinfo_delete', array('id' => $id)))
@@ -220,5 +214,5 @@ class MembersinfoController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
-    }
+    }*/
 }

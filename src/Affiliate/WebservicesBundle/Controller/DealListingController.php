@@ -21,7 +21,7 @@ class DealListingController extends Controller {
 
         if(!$entities){
              $errorMsg = "No Data Found";
-             return new JsonResponse($this>blankField($errorMsg));
+             return new JsonResponse($this->blankField($errorMsg));
          }
         
         ######################################################

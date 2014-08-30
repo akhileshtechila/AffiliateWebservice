@@ -103,6 +103,33 @@ class EditAffiliatePaymentRequestController extends Controller {
         return $this->render('AffiliateWebservicesBundle:EditAffiliatePaymentRequest:EditAffiliatePaymentRequest.html.twig');
     }
 
+    public function DeleteAffiliatePaymentRequestAction(Request $request){
+         $em = $this->getDoctrine()->getManager();
+        /* Check The request is Post */
+        if ($request->getMethod() == "POST") {
+              $reqAffPayReqId = $request->get('reqAffPayReqId');
+        } else {
+            return new JsonResponse($this->noPostData());
+        }
+        //$reqAffPayReqId = "2";
+        if ($reqAffPayReqId != "") {
+            $AffiliatePayReqEntity = "AffiliateAffiliateManagementBundle:AffiliatePayReq";
+            $AffiliatePayReq = $em->getRepository($AffiliatePayReqEntity)->find($reqAffPayReqId);
+            if (!$AffiliatePayReq) {
+                $errorMsg = "Error! No Affiliate Payment Request Found";
+                return new JsonResponse($this->blankField($errorMsg));
+            }
+            $em->remove($AffiliatePayReq);
+            $em->flush();
+            $dataQuery = "Affiliate Payment Request Deleted";
+            return new JsonResponse($this->AffiliatePaymentDelete($dataQuery));
+        } else {
+            $errorMsg = "Error! No Deal Id Submitted";
+            return new JsonResponse($this->blankField($errorMsg));
+        }
+         return $this->render('AffiliateWebservicesBundle:EditAffiliatePaymentRequest:EditAffiliatePaymentRequest.html.twig');
+    }
+    
       public function AffiliatePayRequestUnsuccessful() {
         $data = array();
         $data['errorCode'] = "1";
@@ -136,4 +163,16 @@ class EditAffiliatePaymentRequestController extends Controller {
         return $mainData;
     }
     
+    private function AffiliatePaymentDelete($dataQuery) {
+        $data = array();
+
+        $data['errorCode'] = "4";
+        $data['errorMessage'] = "Affiliate Payment Deleted successfully";
+        $data['result'] = $dataQuery;
+
+        $mainData = array();
+        $mainData['data'] = $data;
+
+        return $mainData;
+    }
 }

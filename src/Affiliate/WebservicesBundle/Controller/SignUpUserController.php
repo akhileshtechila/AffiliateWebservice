@@ -37,7 +37,10 @@ class SignUpUserController extends Controller {
             return new JsonResponse($this->noPostData());
         }
 
-        if ($email == "") {
+        if($userId == "" ){
+            $errorMsg = "User Id Empty";
+            return new JsonResponse($this->blankField($errorMsg));            
+        } else if ($email == "") {
             $errorMsg = "Email Id Empty";
             return new JsonResponse($this->blankField($errorMsg));
         } else if ($password == "") {
@@ -75,9 +78,12 @@ class SignUpUserController extends Controller {
             $userInfo->setDeviceToken($deviceToken);
             $userInfo->setCity($city);
 
+            $className = "AffiliateAffiliateManagementBundle:Userinfo";
+            $userInfo = $em->getRepository($className)->find($userId);
+            
             if ($userId != "") {
-                $userInfo->setAddedBy($userId);
-            }
+                $userInfo->setAddedBy($userInfo);
+            }               
 
             $em->persist($userInfo);
             $em->flush();
@@ -97,9 +103,10 @@ class SignUpUserController extends Controller {
                             ->setContentType("text/html")
                             ->setBody(
                             $this->renderView(
-                                    'AffiliateWebservicesBundle:SignUpUser:email.html.twig', array(
-                                'entity' => $entity,
-                                'password' => $password
+                                'AffiliateWebservicesBundle:SignUpUser:email.html.twig', 
+                                    array(
+                                            'entity' => $entity,
+                                            'password' => $password
                                     )
                             )
                     );

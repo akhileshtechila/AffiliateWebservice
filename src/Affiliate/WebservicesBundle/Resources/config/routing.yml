@@ -1,58 +1,124 @@
 affiliate_webservices_homepage:
     path:     /hello/{name}
     defaults: { _controller: AffiliateWebservicesBundle:Default:index }
+
 affiliate_webservices_LoginService:
-    path:     LoginService
+    path:     /LoginService
     defaults: { _controller: AffiliateWebservicesBundle:LoginService:index }
+
 affiliate_webservices_sign_up_user:
-    path:     SignUpUser
+    path:     /SignUpUser
     defaults: { _controller: AffiliateWebservicesBundle:SignUpUser:SignUpUser }
-affiliate_webservices_members_listing:
-    path:     /MembersListing
-    defaults: { _controller: AffiliateWebservicesBundle:MembersListing:MembersListing }
-affiliate_webservices_deal:
-    path:     /Deal
-    defaults: { _controller: AffiliateWebservicesBundle:Deal:Deal }
-affiliate_webservices_affiliate_deal:
-    path:     /AffiliateDeal
-    defaults: { _controller: AffiliateWebservicesBundle:AffiliateDeal:AffiliateDeal }
-
-affiliate_webservices_deal_listing:
-    path:     /DealListing
-    defaults: { _controller: AffiliateWebservicesBundle:DealListing:DealListing }
-
-affiliate_webservices_admin_payment_request:
-    path:     /AdminPaymentRequest
-    defaults: { _controller: AffiliateWebservicesBundle:AdminPaymentRequest:AdminPaymentRequest }
-
-affiliate_webservices_affiliate_payment_request:
-    path:     /AffiliatePaymentRequest
-    defaults: { _controller: AffiliateWebservicesBundle:AffiliatePaymentRequest:AffiliatePaymentRequest }
-
-affiliate_webservices_edit_admin_payment_request:
-    path:     /EditAdminPaymentRequest
-    defaults: { _controller: AffiliateWebservicesBundle:EditAdminPaymentRequest:EditAdminPaymentRequest }
-
-affiliate_webservices_listing_admin_pay_req:
-    path:     /ListingAdminPayReq
-    defaults: { _controller: AffiliateWebservicesBundle:ListingAdminPayReq:ListingAdminPayReq }
-
-affiliate_webservices_edit_deal:
-    path:     /EditDeal
-    defaults: { _controller: AffiliateWebservicesBundle:EditDeal:EditDeal }
 
 affiliate_webservices_edit_user_info:
     path:     /EditUserInfo
     defaults: { _controller: AffiliateWebservicesBundle:EditUserInfo:EditUserInfo }
 
+#################################################################
+########Members Information Controller Start ROute ##############
+
+affiliate_webservices_members_listing:
+    path:     /MembersListing
+    defaults: { _controller: AffiliateWebservicesBundle:MembersListing:MembersListing }
+
+affiliate_webservices_members_info_add:
+    path:     /MembersInfoAdd
+    defaults: { _controller: AffiliateWebservicesBundle:MembersInfo:MembersInfoAdd }
+
+affiliate_webservices_edit_members_info:
+    path:     /EditMembersInfo
+    defaults: { _controller: AffiliateWebservicesBundle:EditMembersInfo:EditMembersInfo }
+
+affiliate_webservices_delete_members_info:
+    path:     /DeleteMember
+    defaults: { _controller: AffiliateWebservicesBundle:EditMembersInfo:DeleteMember }    
+
+########Members Information COntroller End ROute ################
+#################################################################
+
+
+############################################
+########Deal COntroller ROute ##############
+affiliate_webservices_deal:
+    path:     /Deal
+    defaults: { _controller: AffiliateWebservicesBundle:Deal:Deal }
+
+affiliate_webservices_deal_listing:
+    path:     /DealListing
+    defaults: { _controller: AffiliateWebservicesBundle:DealListing:DealListing }
+
+affiliate_webservices_edit_deal:
+    path:     /EditDeal
+    defaults: { _controller: AffiliateWebservicesBundle:EditDeal:EditDeal }
+
+affiliate_webservices_delete_deal:
+    path:     /DeleteDeal
+    defaults: { _controller: AffiliateWebservicesBundle:EditDeal:DeleteDeal }
+########End Deal COntroller ROute ##########
+############################################
+
+
+#############################################
+####### AffiliateDealController Start Route##############
+affiliate_webservices_affiliate_deal:
+    path:     /AffiliateDeal
+    defaults: { _controller: AffiliateWebservicesBundle:AffiliateDeal:AffiliateDeal }
+
 affiliate_webservices_edit_affiliate_deal:
     path:     /EditAffiliateDeal
     defaults: { _controller: AffiliateWebservicesBundle:EditAffiliateDeal:EditAffiliateDeal }
 
-_edit_affiliate_payment_request:
+affiliate_webservices_delete_affiliate_deal:
+    path:     /DeleteAffiliateDeal
+    defaults: { _controller: AffiliateWebservicesBundle:EditAffiliateDeal:DeleteAffiliateDeal }
+
+affiliate_webservices_listing_affiliate_deal:
+    path:     /ListingAffiliateDeal
+    defaults: { _controller: AffiliateWebservicesBundle:ListingAffiliateDeal:ListingAffiliateDeal }
+####### AffiliateDealController End ROute##############
+#######################################################
+
+
+#######################################################
+####### Admin Payment Request Start Route##############
+affiliate_webservices_admin_payment_request:
+    path:     /AdminPaymentRequest
+    defaults: { _controller: AffiliateWebservicesBundle:AdminPaymentRequest:AdminPaymentRequest }
+
+affiliate_webservices_edit_admin_payment_request:
+    path:     /EditAdminPaymentRequest
+    defaults: { _controller: AffiliateWebservicesBundle:EditAdminPaymentRequest:EditAdminPaymentRequest }
+
+affiliate_webservices_delete_admin_payment_request:
+    path:     /DeleteAdminPaymentRequest
+    defaults: { _controller: AffiliateWebservicesBundle:EditAdminPaymentRequest:DeleteAdminPaymentRequest }
+
+affiliate_webservices_listing_admin_pay_req:
+    path:     /ListingAdminPayReq
+    defaults: { _controller: AffiliateWebservicesBundle:ListingAdminPayReq:ListingAdminPayReq }
+
+####### Admin Payment Request End Route##############
+#######################################################
+
+
+###########################################################
+####### Affiliate Payment Request Start Route##############
+affiliate_webservices_affiliate_payment_request:
+    path:     /AffiliatePaymentRequest
+    defaults: { _controller: AffiliateWebservicesBundle:AffiliatePaymentRequest:AffiliatePaymentRequest }
+
+affiliate_webservices_edit_affiliate_payment_request:
     path:     /EditAffiliatePaymentRequest
     defaults: { _controller: AffiliateWebservicesBundle:EditAffiliatePaymentRequest:EditAffiliatePaymentRequest }
 
-_listing_affiliate_payment_request:
+affiliate_webservices_delete_affiliate_payment_request:
+    path:     /DeleteAffiliatePaymentRequest
+    defaults: { _controller: AffiliateWebservicesBundle:EditAffiliatePaymentRequest:DeleteAffiliatePaymentRequest }
+
+affiliate_webservices_listing_affiliate_payment_request:
     path:     /ListingAffiliatePaymentRequest
     defaults: { _controller: AffiliateWebservicesBundle:ListingAffiliatePaymentRequest:ListingAffiliatePaymentRequest }
+
+####### Affiliate Payment Request End Route################
+###########################################################
+

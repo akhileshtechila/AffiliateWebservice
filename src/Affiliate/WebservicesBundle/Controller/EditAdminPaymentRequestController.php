@@ -36,7 +36,7 @@ class EditAdminPaymentRequestController extends Controller {
 
             /* End The Json String */
         } else {
-           
+
             return new JsonResponse($this->noPostData());
         }
 
@@ -76,9 +76,9 @@ class EditAdminPaymentRequestController extends Controller {
             $errorMsg = "Released Date is Empty";
             return new JsonResponse($this->blankField($errorMsg));
         } else {
-            $AdminPayReqEntity = "AffiliateManagementBundle:AdminPayReq";
-            $AdminPayReq =  $em->getRepository($AdminPayReqEntity)->find($requestPayId);
-            
+            $AdminPayReqEntity = "AffiliateAffiliateManagementBundle:AdminPayReq";
+            $AdminPayReq = $em->getRepository($AdminPayReqEntity)->find($requestPayId);
+
             $AdminPayReq->setRequestedAmt($requestedAmt);
             $AdminPayReq->setRequestedDate(new \DateTime($requestedDate));
             $AdminPayReq->setReqDescription($reqDescription);
@@ -89,18 +89,45 @@ class EditAdminPaymentRequestController extends Controller {
             $AdminPayReq->setAdmininfoReleasedBy($admininfoRequest);
             $AdminPayReq->setAdmininfoRequestedBy($admininfoRealeased);
             $em->flush();
-            
-             if ($AdminPayReq->getId() != "") {
+
+            if ($AdminPayReq->getId() != "") {
                 $dataQuery = "Data Inserted";
                 return new JsonResponse($this->editSuccessAdminPaymentRequest($dataQuery));
             } else {
                 return new JsonResponse($this->adminPayReqEditUnsuccess());
             }
             return new JsonResponse($this->adminPayReqEditUnsuccess());
-            
         }
 
 
+        return $this->render('AffiliateWebservicesBundle:EditAdminPaymentRequest:EditAdminPaymentRequest.html.twig');
+    }
+
+    public function DeleteAdminPaymentRequestAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+        /* Check The request is Post */
+        if ($request->getMethod() == "POST") {
+              $requestPayId = $request->get('requestPayId');
+        } else {
+            return new JsonResponse($this->noPostData());
+        }
+        $requestPayId = "1";
+        if ($requestPayId != "") {
+            $AdminPayReqEntity = "AffiliateAffiliateManagementBundle:AdminPayReq";
+            $AdminPayReq = $em->getRepository($AdminPayReqEntity)->find($requestPayId);
+            if (!$AdminPayReq) {
+                $errorMsg = "Error! No Admin Payment Request Found";
+                return new JsonResponse($this->blankField($errorMsg));
+            }
+            $em->remove($AdminPayReq);
+            $em->flush();
+            $dataQuery = "Admin Payment Request Deleted";
+            return new JsonResponse($this->adminPaymentDelete($dataQuery));
+        } else {
+            $errorMsg = "Error! No Deal Id Submitted";
+            return new JsonResponse($this->blankField($errorMsg));
+        }
         return $this->render('AffiliateWebservicesBundle:EditAdminPaymentRequest:EditAdminPaymentRequest.html.twig');
     }
 
@@ -150,6 +177,19 @@ class EditAdminPaymentRequestController extends Controller {
 
         $mainData = array();
         $mainData['data'] = $data;
+        return $mainData;
+    }
+
+    private function adminPaymentDelete($dataQuery) {
+        $data = array();
+
+        $data['errorCode'] = "4";
+        $data['errorMessage'] = "Admin Payment Deleted successfully";
+        $data['result'] = $dataQuery;
+
+        $mainData = array();
+        $mainData['data'] = $data;
+
         return $mainData;
     }
 

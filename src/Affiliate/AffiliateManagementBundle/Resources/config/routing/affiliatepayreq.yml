@@ -27,4 +27,4 @@ affiliatepayreq_update:
 affiliatepayreq_delete:
     path:     /{id}/delete
     defaults: { _controller: "AffiliateAffiliateManagementBundle:AffiliatePayReq:delete" }
-    requirements: { _method: post|delete }
+#    requirements: { _method: post|delete }

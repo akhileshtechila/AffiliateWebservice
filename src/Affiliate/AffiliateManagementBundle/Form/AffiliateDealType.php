@@ -5,6 +5,7 @@ namespace Affiliate\AffiliateManagementBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class AffiliateDealType extends AbstractType
 {
@@ -15,9 +16,22 @@ class AffiliateDealType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Affiliateinfo','entity', array(
-                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Affiliateinfo',
+                ->add('Userinfo', 'entity', array(
+                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Userinfo',
                     'property' => 'email',
+                    'required' => false,
+                    'empty_value' => 'Choose an option',
+                    'query_builder' => function(EntityRepository $er) {
+                return $er
+                        ->createQueryBuilder('U')
+                        ->select('U')
+                        ->where("U.userType = 'affiliate'")                        
+                      ;
+                  },
+                ))
+            ->add('Deal','entity', array(
+                    'class' => 'Affiliate\AffiliateManagementBundle\Entity\Deal',
+                    'property' => 'dName',
                     'required' => true,
                     'empty_value' => 'Choose an option',
                 ))

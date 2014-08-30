@@ -40,41 +40,48 @@ class __TwigTemplate_8e92916b0c555c07357a73bf1b1cc9960bf789934815c6bc0fa39c4f747
         echo "    ";
         $this->displayParentBlock("stylesheets", $context, $blocks);
         echo "
+    <style>
+        .modal-content {width: 84% !important;}
+        .modal-header {padding: 6px;}
+        .modal-body {padding: 2px;}
+        .modal-footer {padding: 4px 6px 7px;margin-top: -6px;}
+       .dropdown-menu { min-width : 109px !important; }
+    </style>
 ";
     }
 
-    // line 6
+    // line 13
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 7
+        // line 14
         echo "    ";
-        // line 8
+        // line 15
         echo "    <!-- jQuery 2.0.2 -->
     <script src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js\"></script>
     <!-- Bootstrap -->
     <script src=\"";
-        // line 11
+        // line 18
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.min.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
 
     <!-- DATA TABES SCRIPT -->
     <script src=\"";
-        // line 14
+        // line 21
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/plugins/datatables/jquery.dataTables.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
     <script src=\"";
-        // line 15
+        // line 22
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/plugins/datatables/dataTables.bootstrap.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
     <!-- AdminLTE App -->
 
     <script src=\"";
-        // line 18
+        // line 25
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/AdminLTE/app.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
     <!-- AdminLTE for demo purposes -->
     <script src=\"";
-        // line 20
+        // line 27
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/AdminLTE/demo.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
     <!-- page script -->
@@ -92,14 +99,21 @@ class __TwigTemplate_8e92916b0c555c07357a73bf1b1cc9960bf789934815c6bc0fa39c4f747
         });
     </script>
 
+  <script>
+        \$('#confirm-delete').on('show.bs.modal', function(e) {
+            \$(this).find('.danger').attr('href', \$(e.relatedTarget).data('href'));
+            
+           // \$('.debug-url').html('Delete URL: <strong>' + \$(this).find('.danger').attr('href') + '</strong>');
+        })
+    </script>
 
 ";
     }
 
-    // line 39
+    // line 53
     public function block_body($context, array $blocks = array())
     {
-        // line 41
+        // line 55
         echo "<!-- Main content -->
 
     <div class=\"col-xs-12\">
@@ -115,8 +129,6 @@ class __TwigTemplate_8e92916b0c555c07357a73bf1b1cc9960bf789934815c6bc0fa39c4f747
                         <tr>
                             <th>Id</th>
                             <th>Fname</th>
-                            <th>Lname</th>
-                            <th>Username</th>
                             <th>Email</th>
                             <th>State</th>
                             <th>Country</th>
@@ -127,65 +139,70 @@ class __TwigTemplate_8e92916b0c555c07357a73bf1b1cc9960bf789934815c6bc0fa39c4f747
                     </thead>
                     <tbody>
                         ";
-        // line 67
+        // line 79
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 68
+            // line 80
             echo "                            <tr>
                                 <td><a href=\"";
-            // line 69
+            // line 81
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("userinfo_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
             echo "</a></td>
                                 <td>";
-            // line 70
+            // line 82
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "fName"), "html", null, true);
-            echo "</td>
-                                <td>";
-            // line 71
+            echo " ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "lName"), "html", null, true);
-            echo "</td>
+            echo "</td>                             
                                 <td>";
-            // line 72
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "userName"), "html", null, true);
-            echo "</td>
-                                <td>";
-            // line 73
+            // line 83
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "email"), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 74
+            // line 84
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "state"), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 75
+            // line 85
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "country"), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 76
+            // line 86
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "mobile"), "html", null, true);
             echo "</td>
                                 <td>";
-            // line 77
+            // line 87
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "userType"), "html", null, true);
             echo "</td>
                                 <td>
-                                    <ul>
-                                        <li>
-                                            <a href=\"";
-            // line 81
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("userinfo_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">show</a>
-                                        </li>
-                                        <li>
-                                            <a href=\"";
-            // line 84
+                                    
+                                     <div class=\"btn-group\">
+                                        <button type=\"button\" class=\"btn btn-primary\">Action</button>
+                                        <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">
+                                            <span class=\"caret\"></span>
+                                            <span class=\"sr-only\"></span>
+                                        </button>
+                                        <ul class=\"dropdown-menu\" role=\"menu\">
+                                            <li><a href=\"";
+            // line 97
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("userinfo_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">edit</a>
-                                        </li>
-                                    </ul>
+            echo "\">Edit User</a></li>
+                                                                                       
+                                            <li class=\"divider\"></li>                                                
+                                            <li> 
+                                               <a data-href=\"";
+            // line 101
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("userinfo_delete", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+            echo "\" data-toggle=\"modal\" data-target=\"#confirm-delete\" href=\"#\">
+                                                   Delete Record</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                   
                                 </td>
                             </tr>
                         ";
@@ -193,14 +210,12 @@ class __TwigTemplate_8e92916b0c555c07357a73bf1b1cc9960bf789934815c6bc0fa39c4f747
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 90
+        // line 111
         echo "                    </tbody>
                     <tfoot>
                         <tr>
                             <th>Id</th>
-                            <th>Fname</th>
-                            <th>Lname</th>
-                            <th>Username</th>
+                            <th>Fname</th>    
                             <th>Email</th>
                             <th>State</th>
                             <th>Country</th>
@@ -213,17 +228,40 @@ class __TwigTemplate_8e92916b0c555c07357a73bf1b1cc9960bf789934815c6bc0fa39c4f747
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
-    <ul>
-        
+    <ul>        
         <li>
             <a href=\"";
-        // line 112
+        // line 130
         echo $this->env->getExtension('routing')->getPath("userinfo_new");
         echo "\">
                 Create a new entry
             </a>
         </li>
     </ul>
+             <!-- Delete toggle Pop Up -->   
+    <div class=\"modal fade\" id=\"confirm-delete\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
+        <div class=\"modal-dialog\">
+            <div class=\"modal-content\">
+
+                <div class=\"modal-header\">
+                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>
+                    <h4 class=\"modal-title\" id=\"myModalLabel\">Confirm Delete</h4>
+                </div>
+
+                <div class=\"modal-body\">
+                    <p>You are about to delete one User, this procedure is irreversible.</p>
+                    <p>Do you want to proceed?</p>                   
+                </div>
+
+                <div class=\"modal-footer\">
+                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
+                    <a href=\"#\" class=\"btn btn-danger danger\">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>      
+    <!-- Delete toggle Pop Up End -->    
+            
 ";
     }
 
@@ -239,6 +277,6 @@ class __TwigTemplate_8e92916b0c555c07357a73bf1b1cc9960bf789934815c6bc0fa39c4f747
 
     public function getDebugInfo()
     {
-        return array (  221 => 112,  197 => 90,  185 => 84,  179 => 81,  172 => 77,  168 => 76,  164 => 75,  160 => 74,  156 => 73,  152 => 72,  148 => 71,  144 => 70,  138 => 69,  135 => 68,  131 => 67,  103 => 41,  100 => 39,  78 => 20,  73 => 18,  67 => 15,  63 => 14,  57 => 11,  52 => 8,  50 => 7,  47 => 6,  40 => 4,  37 => 3,  31 => 2,);
+        return array (  235 => 130,  214 => 111,  198 => 101,  191 => 97,  178 => 87,  174 => 86,  170 => 85,  166 => 84,  162 => 83,  156 => 82,  150 => 81,  147 => 80,  143 => 79,  117 => 55,  114 => 53,  85 => 27,  80 => 25,  74 => 22,  70 => 21,  64 => 18,  59 => 15,  57 => 14,  54 => 13,  40 => 4,  37 => 3,  31 => 2,);
     }
 }

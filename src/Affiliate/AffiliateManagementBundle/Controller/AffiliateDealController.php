@@ -2,9 +2,9 @@
 
 namespace Affiliate\AffiliateManagementBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Affiliate\AffiliateManagementBundle\Entity\AffiliateDeal;
 use Affiliate\AffiliateManagementBundle\Form\AffiliateDealType;
 
@@ -101,11 +101,9 @@ class AffiliateDealController extends Controller
             throw $this->createNotFoundException('Unable to find AffiliateDeal entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('AffiliateAffiliateManagementBundle:AffiliateDeal:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+          
         ));
     }
 
@@ -124,12 +122,12 @@ class AffiliateDealController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+       
 
         return $this->render('AffiliateAffiliateManagementBundle:AffiliateDeal:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+           
         ));
     }
 
@@ -164,8 +162,7 @@ class AffiliateDealController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find AffiliateDeal entity.');
         }
-
-        $deleteForm = $this->createDeleteForm($id);
+      
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
@@ -178,7 +175,7 @@ class AffiliateDealController extends Controller
         return $this->render('AffiliateAffiliateManagementBundle:AffiliateDeal:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+           
         ));
     }
     /**
@@ -186,11 +183,9 @@ class AffiliateDealController extends Controller
      *
      */
     public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+    {     
 
-        if ($form->isValid()) {
+       if($id != ""){
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('AffiliateAffiliateManagementBundle:AffiliateDeal')->find($id);
 
@@ -200,7 +195,7 @@ class AffiliateDealController extends Controller
 
             $em->remove($entity);
             $em->flush();
-        }
+       }
 
         return $this->redirect($this->generateUrl('affiliatedeal'));
     }
@@ -212,7 +207,7 @@ class AffiliateDealController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+   /* private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('affiliatedeal_delete', array('id' => $id)))
@@ -220,5 +215,5 @@ class AffiliateDealController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
-    }
+    }*/
 }

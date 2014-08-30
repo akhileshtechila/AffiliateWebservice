@@ -27,4 +27,4 @@ userinfo_update:
 userinfo_delete:
     path:     /{id}/delete
     defaults: { _controller: "AffiliateAffiliateManagementBundle:Userinfo:delete" }
-    requirements: { _method: post|delete }
+#    requirements: { _method: post|delete }

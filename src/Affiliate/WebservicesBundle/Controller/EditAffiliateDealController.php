@@ -21,6 +21,7 @@ class EditAffiliateDealController extends Controller {
             $userId = $request->get('userId');
             $description = $request->get('description');
             $dealId = $request->get('dealId');
+            $affiliateDealId = $request->get('affiliateDealId');
         } else {
             return new JsonResponse($this->noPostData());
         }
@@ -49,7 +50,7 @@ class EditAffiliateDealController extends Controller {
                 $errorMsg = "Deal Information is Empty";
                 return new JsonResponse($this->blankField($errorMsg));
             }
-            $AffiliateDeal = $em->getRepository('AffiliateAffiliateManagementBundle:AffiliateDeal')->find($dealId);
+            $AffiliateDeal = $em->getRepository('AffiliateAffiliateManagementBundle:AffiliateDeal')->find($affiliateDealId);
 
             if (!$AffiliateDeal) {
                 $errorMsg = "Affiliate Information is Empty";
@@ -71,6 +72,35 @@ class EditAffiliateDealController extends Controller {
             return new JsonResponse($this->dealUnsuccessful());
         }
 
+
+        return $this->render('AffiliateWebservicesBundle:EditAffiliateDeal:EditAffiliateDeal.html.twig');
+    }
+
+    public function DeleteAffiliateDealAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+        /* Check The request is Post */
+        if ($request->getMethod() == "POST") {
+            $affiliateDealId = $request->get('affiliateDealId');
+        } else {
+            return new JsonResponse($this->noPostData());
+        }
+        $affiliateDealId = "1";
+        if ($affiliateDealId != "") {
+            $AffiliateDeal = $em->getRepository('AffiliateAffiliateManagementBundle:AffiliateDeal')->find($affiliateDealId);
+
+            if (!$AffiliateDeal) {
+                $errorMsg = "Affiliate Deal Information is Empty";
+                return new JsonResponse($this->blankField($errorMsg));
+            }
+            $em->remove($AffiliateDeal);
+            $em->flush();
+            $dataQuery = "Affilate Deal Deleted";
+            return new JsonResponse($this->affiliateDealDelete($dataQuery));
+        } else {
+            $errorMsg = "Error! No Deal Id Submitted";
+            return new JsonResponse($this->blankField($errorMsg));
+        }
 
         return $this->render('AffiliateWebservicesBundle:EditAffiliateDeal:EditAffiliateDeal.html.twig');
     }
@@ -118,6 +148,19 @@ class EditAffiliateDealController extends Controller {
 
         $mainData = array();
         $mainData['data'] = $data;
+        return $mainData;
+    }
+
+    private function affiliateDealDelete($dataQuery) {
+        $data = array();
+
+        $data['errorCode'] = "4";
+        $data['errorMessage'] = "Affiliate Deal Deleted successfully";
+        $data['result'] = $dataQuery;
+
+        $mainData = array();
+        $mainData['data'] = $data;
+
         return $mainData;
     }
 
